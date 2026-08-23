@@ -1,0 +1,1261 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="TKO鯖 10勝プラベ部 公式ルールブック V8.2">
+<title>TKO鯖 10勝プラベ部 ルールブック</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Barlow+Semi+Condensed:wght@600;700&display=swap">
+
+<style>
+/* ============================================================
+   TKO鯖 10勝プラベ部 公式ルールブック
+   インク2色（マゼンタ / ターコイズ）を章ごとに交互に振る構成
+   ============================================================ */
+
+/* --- Light（既定） -------------------------------------- */
+:root {
+  --bg:          #FAF6FA;
+  --surface:     #FFFFFF;
+  --surface-2:   #F3ECF4;
+  --surface-3:   #EBE1ED;
+  --text:        #1C1226;
+  --text-mid:    #4A3D56;
+  --text-dim:    #6E6079;
+  --border:      #E4D9E7;
+  --border-firm: #D2C3D7;
+
+  --a-text:      #D6006E;   /* マゼンタ：文字用 */
+  --a-fill:      #FF2E88;   /* マゼンタ：装飾専用（文字を載せない） */
+  --a-strong:    #C4006B;   /* マゼンタ：白文字を載せる面 */
+  --a-soft:      #FFE8F2;
+  --b-text:      #00776E;   /* ターコイズ：文字用 */
+  --b-fill:      #00C4B4;   /* ターコイズ：装飾専用（文字を載せない） */
+  --b-strong:    #00796F;   /* ターコイズ：白文字を載せる面 */
+  --b-soft:      #DEF7F3;
+  --c-text:      #8A5A00;   /* コインのゴールド：文字用 */
+  --c-fill:      #F5A800;
+  --c-soft:      #FFF1D2;
+
+  --on-fill:     #FFFFFF;
+  --shadow:      0 1px 2px rgba(28,18,38,.05), 0 8px 24px -12px rgba(28,18,38,.16);
+  --shadow-lift: 0 2px 4px rgba(28,18,38,.06), 0 18px 40px -18px rgba(28,18,38,.28);
+
+  --bar-h: 54px;
+  /* 【幅の統一】ページ全体を1本のカラムに揃える。
+     本文・カード・表・目次・上部バーがすべてこの幅と左右端を共有する。
+     以前は本文だけ --measure で絞っていたため、
+     基本指針カードや目次だけが広く、右端が揃わず本文が細く見えていた。 */
+  --col: 52rem;
+  --measure: 100%;
+
+  --f-display: "Dela Gothic One", "Hiragino Sans", "Yu Gothic", sans-serif;
+  --f-body: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", sans-serif;
+  --f-label: "Barlow Semi Condensed", "Zen Kaku Gothic New", sans-serif;
+}
+
+/* --- Dark（OS設定。明示的なlight指定には負ける） --------- */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:          #120C1A;
+    --surface:     #1C1428;
+    --surface-2:   #241A33;
+    --surface-3:   #2E2140;
+    --text:        #F4EEF8;
+    --text-mid:    #C6B8D2;
+    --text-dim:    #9C8CAB;
+    --border:      #33253F;
+    --border-firm: #45324F;
+
+    --a-text:      #FF74AE;
+    --a-fill:      #FF2E88;
+    --a-strong:    #FF2E88;
+    --a-soft:      #37132A;
+    --b-text:      #3FE3D0;
+    --b-fill:      #00C4B4;
+    --b-strong:    #00C4B4;
+    --b-soft:      #0B302E;
+    --c-text:      #FFC94D;
+    --c-fill:      #F5A800;
+    --c-soft:      #35270D;
+
+    --on-fill:     #150E1E;
+    --shadow:      0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.7);
+    --shadow-lift: 0 2px 4px rgba(0,0,0,.45), 0 18px 40px -18px rgba(0,0,0,.85);
+  }
+}
+
+/* --- Dark（明示指定。OSがlightでも勝つ） ----------------- */
+:root[data-theme="dark"] {
+  --bg:          #120C1A;
+  --surface:     #1C1428;
+  --surface-2:   #241A33;
+  --surface-3:   #2E2140;
+  --text:        #F4EEF8;
+  --text-mid:    #C6B8D2;
+  --text-dim:    #9C8CAB;
+  --border:      #33253F;
+  --border-firm: #45324F;
+
+  --a-text:      #FF74AE;
+  --a-fill:      #FF2E88;
+  --a-strong:    #FF2E88;
+  --a-soft:      #37132A;
+  --b-text:      #3FE3D0;
+  --b-fill:      #00C4B4;
+  --b-strong:    #00C4B4;
+  --b-soft:      #0B302E;
+  --c-text:      #FFC94D;
+  --c-fill:      #F5A800;
+  --c-soft:      #35270D;
+
+  --on-fill:     #150E1E;
+  --shadow:      0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.7);
+  --shadow-lift: 0 2px 4px rgba(0,0,0,.45), 0 18px 40px -18px rgba(0,0,0,.85);
+}
+
+* { box-sizing: border-box; }
+
+/* 背景のスプラットが画面外へ抜けても横スクロールを出さない。
+   hidden ではなく clip を使う（hidden はスクロールコンテナを作り、
+   上部バーの position: sticky を壊すことがある） */
+html { overflow-x: clip; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--f-body);
+  font-size: 16px;
+  line-height: 1.9;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+/* インクの粒（ページ全体のうっすらした地紋） */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .5;
+  background-image:
+    radial-gradient(circle at 12% 8%,  color-mix(in srgb, var(--a-fill) 9%, transparent) 0, transparent 26%),
+    radial-gradient(circle at 88% 34%, color-mix(in srgb, var(--b-fill) 9%, transparent) 0, transparent 24%),
+    radial-gradient(circle at 20% 78%, color-mix(in srgb, var(--b-fill) 7%, transparent) 0, transparent 22%);
+}
+
+.sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+/* スプラット形はすべて currentColor で塗る（各所で色を切り替えるため） */
+#splat path,
+#splat circle { fill: currentColor; }
+
+/* ============================================================
+   トップバー
+   ============================================================ */
+.bar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  height: var(--bar-h);
+  /* 帯は画面幅いっぱい、中身は本文と同じカラムに揃える */
+  display: flex;
+  justify-content: center;
+  padding: 0 clamp(18px, 5vw, 40px);
+  background: color-mix(in srgb, var(--bg) 86%, transparent);
+  backdrop-filter: blur(14px) saturate(1.4);
+  -webkit-backdrop-filter: blur(14px) saturate(1.4);
+  border-bottom: 1px solid var(--border);
+}
+.bar-inner {
+  width: 100%;
+  max-width: calc(var(--col) - clamp(18px, 5vw, 40px) * 2);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.bar-mark {
+  width: 22px; height: 22px; flex: none;
+  color: var(--a-fill);
+}
+.bar-title {
+  font-family: var(--f-body);
+  font-weight: 900;
+  font-size: 13.5px;
+  letter-spacing: .04em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.bar-ver {
+  margin-left: auto;
+  flex: none;
+  font-family: var(--f-label);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: .1em;
+  padding: 3px 10px;
+  border-radius: 999px;
+  color: var(--b-text);
+  background: var(--b-soft);
+  border: 1px solid color-mix(in srgb, var(--b-fill) 35%, transparent);
+}
+
+/* ============================================================
+   レイアウト
+   ============================================================ */
+.wrap {
+  position: relative;
+  z-index: 1;
+  max-width: var(--col);
+  margin: 0 auto;
+  padding: 0 clamp(18px, 5vw, 40px) 96px;
+}
+.measure { max-width: var(--measure); }
+
+/* ============================================================
+   ヒーロー
+   ============================================================ */
+.hero {
+  position: relative;
+  padding: clamp(56px, 11vw, 108px) 0 clamp(40px, 7vw, 68px);
+}
+.hero-splat {
+  position: absolute;
+  top: -6%;
+  right: -14%;
+  width: clamp(260px, 40vw, 470px);
+  height: auto;
+  color: var(--b-fill);
+  opacity: .16;
+  transform: rotate(-14deg);
+  pointer-events: none;
+  z-index: 0;
+}
+/* :not() で除外しないと、この行が上の position:absolute を打ち消す
+   （同じ詳細度で後勝ちになり、スプラットが本文を押し下げてしまう） */
+.hero > *:not(.hero-splat) { position: relative; z-index: 1; }
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--f-label);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--a-text);
+  margin-bottom: 20px;
+}
+.eyebrow::before {
+  content: "";
+  width: 30px; height: 3px;
+  border-radius: 2px;
+  background: var(--a-fill);
+}
+
+h1 {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: clamp(2.1rem, 7.2vw, 4.15rem);
+  line-height: 1.16;
+  letter-spacing: -.015em;
+  margin: 0 0 8px;
+  text-wrap: balance;
+}
+h1 .h1-sub {
+  display: block;
+  font-size: .53em;
+  color: var(--text-mid);
+  letter-spacing: .01em;
+  margin-bottom: .18em;
+}
+h1 em {
+  font-style: normal;
+  color: var(--a-text);
+}
+
+.ver-line {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 26px 0 30px;
+}
+.ver-chip {
+  font-family: var(--f-display);
+  font-size: 15px;
+  letter-spacing: .02em;
+  padding: 7px 16px;
+  border-radius: 999px;
+  color: var(--on-fill);
+  background: var(--a-strong);
+  box-shadow: var(--shadow);
+}
+.ver-note {
+  font-family: var(--f-label);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.lead {
+  font-size: clamp(1rem, 1.6vw, 1.09rem);
+  line-height: 2.05;
+  color: var(--text-mid);
+  max-width: var(--measure);
+  margin: 0;
+}
+
+/* ============================================================
+   基本指針（章番号なしの導入ブロック）
+   ============================================================ */
+.creed {
+  position: relative;
+  margin: 8px 0 64px;
+  padding: clamp(26px, 4.5vw, 40px) clamp(24px, 4.5vw, 44px);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.creed::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 6px;
+  background: linear-gradient(180deg, var(--a-fill), var(--b-fill));
+}
+.creed h2 {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: clamp(1.15rem, 2.6vw, 1.5rem);
+  line-height: 1.5;
+  margin: 0 0 14px;
+  letter-spacing: .005em;
+}
+.creed p {
+  margin: 0;
+  color: var(--text-mid);
+  max-width: var(--measure);
+}
+
+/* ============================================================
+   目次
+   ============================================================ */
+.toc { margin: 0 0 84px; }
+.toc-head {
+  font-family: var(--f-label);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--border-firm);
+}
+.toc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(238px, 1fr));
+  gap: 10px;
+}
+.toc-item {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 13px 15px;
+  border-radius: 13px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  text-decoration: none;
+  font-size: 14.5px;
+  font-weight: 700;
+  line-height: 1.5;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.toc-item:hover,
+.toc-item:focus-visible {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--a-fill) 45%, var(--border));
+  box-shadow: var(--shadow-lift);
+}
+.toc-num {
+  flex: none;
+  width: 27px; height: 27px;
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+  font-family: var(--f-label);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--on-fill);
+  background: var(--a-strong);
+}
+.toc-item:nth-child(even) .toc-num { background: var(--b-strong); }
+
+/* ============================================================
+   章
+   ============================================================ */
+.sec { margin-bottom: clamp(72px, 10vw, 116px); scroll-margin-top: calc(var(--bar-h) + 20px); }
+
+.sec-head {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 3vw, 26px);
+  margin-bottom: clamp(26px, 4vw, 40px);
+}
+.sec-badge {
+  position: relative;
+  flex: none;
+  width: clamp(66px, 11vw, 88px);
+  height: clamp(66px, 11vw, 88px);
+  display: grid;
+  place-items: center;
+}
+.sec-badge svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--a-strong);
+}
+.sec-badge span {
+  position: relative;
+  font-family: var(--f-display);
+  font-size: clamp(1.5rem, 3.4vw, 2.05rem);
+  line-height: 1;
+  color: var(--on-fill);
+  transform: translateY(1px);
+}
+.sec:nth-of-type(even) .sec-badge svg { color: var(--b-strong); }
+/* シールを貼ったように、章ごとに傾きを変える */
+.sec:nth-of-type(3n)   .sec-badge { transform: rotate(6deg); }
+.sec:nth-of-type(3n+1) .sec-badge { transform: rotate(-7deg); }
+.sec:nth-of-type(3n+2) .sec-badge { transform: rotate(-3deg); }
+
+h2.sec-title {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: clamp(1.28rem, 3.4vw, 2.05rem);
+  line-height: 1.4;
+  letter-spacing: -.005em;
+  margin: 0;
+  text-wrap: balance;
+}
+
+h3 {
+  font-family: var(--f-body);
+  font-weight: 900;
+  font-size: clamp(1.02rem, 2vw, 1.16rem);
+  line-height: 1.6;
+  margin: 48px 0 18px;
+  padding-left: 15px;
+  border-left: 4px solid var(--a-fill);
+  letter-spacing: .01em;
+}
+.sec:nth-of-type(even) h3 { border-left-color: var(--b-fill); }
+
+.sec p {
+  max-width: var(--measure);
+  margin: 0 0 20px;
+  color: var(--text-mid);
+}
+.sec p.strong-p { color: var(--text); font-weight: 700; }
+
+/* --- 箇条書き ------------------------------------------- */
+ul.rules {
+  list-style: none;
+  margin: 0 0 22px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: var(--measure);
+}
+ul.rules > li {
+  position: relative;
+  padding: 15px 18px 15px 42px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  color: var(--text-mid);
+  line-height: 1.85;
+}
+ul.rules > li::before {
+  content: "";
+  position: absolute;
+  left: 17px;
+  top: 25px;
+  width: 11px; height: 11px;
+  border-radius: 4px 8px 5px 9px;
+  background: var(--a-fill);
+  transform: rotate(12deg);
+}
+.sec:nth-of-type(even) ul.rules > li::before { background: var(--b-fill); }
+ul.rules > li strong { color: var(--text); font-weight: 900; }
+
+ul.sub {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+ul.sub > li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text-mid);
+}
+ul.sub > li::before {
+  content: "";
+  position: absolute;
+  left: 2px; top: 12px;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--c-fill);
+}
+
+ol.steps-num {
+  margin: 0 0 22px;
+  padding: 0;
+  list-style: none;
+  counter-reset: sn;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: var(--measure);
+}
+ol.steps-num > li {
+  counter-increment: sn;
+  position: relative;
+  padding: 15px 18px 15px 52px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  color: var(--text-mid);
+}
+ol.steps-num > li::before {
+  content: counter(sn);
+  position: absolute;
+  left: 16px; top: 15px;
+  width: 24px; height: 24px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  font-family: var(--f-label);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--on-fill);
+  background: var(--b-strong);
+}
+
+ul.examples {
+  list-style: none;
+  margin: 0 0 22px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: var(--measure);
+}
+ul.examples > li {
+  padding: 12px 16px;
+  border-radius: 11px;
+  background: var(--surface-2);
+  border: 1px dashed var(--border-firm);
+  font-size: 14.5px;
+  line-height: 1.8;
+  color: var(--text-mid);
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- 参加フロー（章3） ---------------------------------- */
+/* 元表の列見出しを、フロー上部のラベルとして残す */
+.flow-head {
+  display: grid;
+  grid-template-columns: 116px 1fr;
+  gap: 18px;
+  max-width: 100%;
+  margin: 0 0 12px;
+  padding: 0 0 10px;
+  border-bottom: 2px solid var(--border-firm);
+  font-family: var(--f-label);
+  font-weight: 700;
+  font-size: 12.5px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.flow-head span:first-child { text-align: center; }
+.flow-head span:last-child { padding-left: 18px; }
+
+.flow {
+  position: relative;
+  margin: 0 0 8px;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 100%;
+}
+.flow > li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 116px 1fr;
+  gap: 18px;
+  align-items: stretch;
+}
+.flow-tag {
+  position: relative;
+  display: flex;
+  /* 「STEP 5」と「（任意）」が途中で折れないよう縦に積む */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  white-space: nowrap;
+  padding: 12px 8px;
+  border-radius: 12px;
+  background: var(--b-soft);
+  border: 1px solid color-mix(in srgb, var(--b-fill) 40%, transparent);
+  font-family: var(--f-label);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: .07em;
+  text-align: center;
+  line-height: 1.3;
+  color: var(--b-text);
+  text-transform: uppercase;
+}
+.flow-tag small {
+  display: block;
+  font-size: 11px;
+  letter-spacing: .04em;
+  opacity: .85;
+  text-transform: none;
+  font-family: var(--f-body);
+  font-weight: 700;
+}
+/* ステップ間をつなぐ線 */
+.flow > li:not(:last-child) .flow-tag::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  width: 2px;
+  height: 12px;
+  transform: translateX(-50%);
+  background: color-mix(in srgb, var(--b-fill) 45%, transparent);
+}
+.flow-body {
+  padding: 15px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  color: var(--text-mid);
+  line-height: 1.85;
+}
+.flow-body strong { color: var(--text); font-weight: 900; }
+
+.flow > li.is-finish .flow-tag {
+  background: var(--c-fill);
+  border-color: var(--c-fill);
+  color: #2A1B00;
+  letter-spacing: .1em;
+}
+.flow > li.is-finish .flow-body {
+  border-color: color-mix(in srgb, var(--c-fill) 55%, transparent);
+  background: var(--c-soft);
+}
+
+/* --- 表 -------------------------------------------------- */
+.table-scroll {
+  overflow-x: auto;
+  margin: 0 0 22px;
+  max-width: var(--measure);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  background: var(--surface);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  min-width: 340px;
+}
+thead th {
+  text-align: left;
+  padding: 13px 18px;
+  font-family: var(--f-label);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--on-fill);
+  background: var(--a-strong);
+  white-space: nowrap;
+}
+.sec:nth-of-type(even) thead th { background: var(--b-strong); }
+tbody td {
+  padding: 13px 18px;
+  border-top: 1px solid var(--border);
+  color: var(--text-mid);
+  line-height: 1.8;
+  vertical-align: middle;
+}
+tbody tr:nth-child(even) { background: var(--surface-2); }
+td.rank {
+  font-family: var(--f-display);
+  font-size: 15px;
+  color: var(--text);
+  white-space: nowrap;
+  width: 1%;
+}
+td.xp {
+  font-variant-numeric: tabular-nums;
+  font-family: var(--f-label);
+  font-weight: 600;
+  font-size: 16.5px;
+  letter-spacing: .04em;
+  color: var(--text);
+}
+td.bet {
+  white-space: nowrap;
+  width: 1%;
+}
+.bet-chip {
+  display: inline-block;
+  font-family: var(--f-display);
+  font-size: 14px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  color: var(--on-fill);
+  background: var(--b-strong);
+}
+tbody tr:nth-child(2) .bet-chip { background: var(--a-strong); }
+
+/* --- コイン強調 ------------------------------------------ */
+.coin {
+  display: inline-block;
+  font-family: var(--f-label);
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: .04em;
+  font-variant-numeric: tabular-nums;
+  padding: 1px 9px;
+  margin: 0 1px;
+  border-radius: 7px;
+  color: var(--c-text);
+  background: var(--c-soft);
+  border: 1px solid color-mix(in srgb, var(--c-fill) 40%, transparent);
+}
+
+/* --- 権限・裁定のひとこと ------------------------------- */
+.verdict {
+  max-width: var(--measure);
+  margin: 26px 0 0;
+  padding: 17px 20px;
+  border-radius: 13px;
+  background: var(--a-soft);
+  border: 1px solid color-mix(in srgb, var(--a-fill) 34%, transparent);
+  color: var(--text-mid);
+  font-size: 15px;
+  line-height: 1.85;
+}
+.verdict strong { color: var(--a-text); font-weight: 900; }
+
+/* ============================================================
+   フッター
+   ============================================================ */
+.foot {
+  margin-top: clamp(60px, 9vw, 100px);
+  padding-top: 34px;
+  border-top: 2px solid var(--border-firm);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.foot-mark { width: 34px; height: 34px; color: var(--a-fill); flex: none; }
+.foot-txt {
+  font-family: var(--f-label);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.foot-ver { margin-left: auto; }
+
+/* ============================================================
+   演出（読み込み・スクロール）
+   ============================================================ */
+.rise {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .6s cubic-bezier(.2,.7,.3,1), transform .6s cubic-bezier(.2,.7,.3,1);
+}
+.rise.in { opacity: 1; transform: none; }
+.hero .rise { transition-delay: var(--d, 0ms); }
+
+@media (prefers-reduced-motion: reduce) {
+  .rise { opacity: 1; transform: none; transition: none; }
+  * { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+}
+
+a:focus-visible,
+.toc-item:focus-visible {
+  outline: 3px solid var(--a-fill);
+  outline-offset: 3px;
+}
+
+/* ============================================================
+   狭い画面
+   ============================================================ */
+@media (max-width: 620px) {
+  body { font-size: 15.5px; line-height: 1.85; }
+  /* 狭い画面では列が縦積みになるため、見出しも1行にまとめる */
+  .flow-head { grid-template-columns: auto auto; justify-content: start; gap: 10px; }
+  .flow-head span:first-child { text-align: left; }
+  .flow-head span:first-child::after { content: " /"; }
+  .flow-head span:last-child { padding-left: 0; }
+  .flow > li { grid-template-columns: 1fr; gap: 0; }
+  .flow-tag {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: flex-start;
+    gap: 8px;
+    border-radius: 12px 12px 0 0;
+    border-bottom: none;
+    padding: 9px 15px;
+  }
+  .flow-tag small { display: inline; }
+  .flow-body { border-radius: 0 0 12px 12px; }
+  .flow > li:not(:last-child) .flow-tag::after { display: none; }
+  .sec-head { gap: 14px; }
+  .hero-splat { opacity: .09; }
+}
+
+/* ============================================================
+   印刷（PDF配布用）
+   ============================================================ */
+@media print {
+  :root { --bg: #fff; --surface: #fff; --text: #000; --text-mid: #222; }
+  body::before, .hero-splat { display: none; }
+  .bar, .toc { display: none; }
+  .sec { break-inside: avoid-page; margin-bottom: 34px; }
+  .sec-head { break-after: avoid-page; }
+  ul.rules > li, .flow > li, .table-scroll { break-inside: avoid; }
+  .rise { opacity: 1 !important; transform: none !important; }
+}
+</style>
+
+<!-- インクのスプラット形（章バッジ・装飾で使い回す） -->
+
+</head>
+<body>
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="splat" viewBox="0 0 100 100">
+    <path d="M50 3.5c8.6 0 13.2 5.4 20.4 4.2 8.4-1.4 16.7 4.3 15.6 12.4-.8 6.2 5.6 8.8 8.6 14.8 3.3 6.6-.4 12.4-.4 18.2 0 6.4 4.6 12.4.4 18.4-3.6 5.2-10.2 5.6-12.4 12-2.6 7.6-10.4 12.2-18 9.6-6.2-2.1-10.2 3.6-17.2 4.4-7.4.9-12-3.4-18.3-4.6-7.1-1.3-14.6-2.6-17-9.8-2-6-8.6-7-11.8-12.6C-3.2 65 1.6 59 1.4 52.6 1.2 46.2-2 40.6 1.2 34.6 4 29.4 10.6 27.4 12.3 21c1.9-7.4 7.5-14 15.4-12.9C34.9 9.1 40 3.5 50 3.5Z"/>
+    <circle cx="93" cy="14" r="4.6"/>
+    <circle cx="8.5" cy="86" r="3.8"/>
+    <circle cx="86" cy="90.5" r="2.9"/>
+  </symbol>
+</svg>
+
+<header class="bar">
+  <div class="bar-inner">
+    <svg class="bar-mark" aria-hidden="true"><use href="#splat"/></svg>
+    <div class="bar-title">TKO鯖 10勝プラベ部 公式ルールブック</div>
+    <div class="bar-ver">V8.2</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- ========================================================
+       ヒーロー
+       ======================================================== -->
+  <section class="hero">
+    <svg class="hero-splat" viewBox="0 0 100 100" aria-hidden="true"><use href="#splat"/></svg>
+
+    <div class="eyebrow rise" style="--d:0ms">Official Rulebook</div>
+
+    <h1 class="rise" style="--d:70ms">
+      <span class="h1-sub">TKO鯖 10勝プラベ部</span>
+      公式<em>ルールブック</em>
+    </h1>
+
+    <div class="ver-line rise" style="--d:140ms">
+      <span class="ver-chip">V8.2</span>
+      <span class="ver-note">New Member Guide</span>
+    </div>
+
+    <p class="lead rise" style="--d:210ms">
+      本ルールブックは、TKO鯖 10勝プラベ部における運営方針、全体の参加フロー、サーバー加入手続き、DMグループ利用規定、対戦ルール、レーティングシステム、およびミニゲーム（10勝競馬部）の規定をまとめた新規メンバー向けの公式ガイドラインです。すべての参加者が快適かつ高め合える環境を維持するため、ルールおよびマナーを遵守してご参加ください。
+    </p>
+  </section>
+
+  <!-- ========================================================
+       基本指針
+       ======================================================== -->
+  <section class="creed rise">
+    <h2>コミュニティ基本指針・マナー</h2>
+    <p>当コミュニティはマナーとリスペクトを最優先としています。勝敗にかかわらず、対戦相手や味方に対する思いやりのある言動とリスペクトをもった対応をお願いいたします。困りごとや不明な点がございましたら、速やかに運営DMまでご連絡ください。</p>
+  </section>
+
+  <!-- ========================================================
+       目次
+       ======================================================== -->
+  <nav class="toc rise" aria-label="目次">
+    <div class="toc-head">Contents</div>
+    <div class="toc-grid">
+      <a class="toc-item" href="#sec1"><span class="toc-num">1</span>行動規範・禁止事項・マナー規定</a>
+      <a class="toc-item" href="#sec2"><span class="toc-num">2</span>運営方針・参加前提条件</a>
+      <a class="toc-item" href="#sec3"><span class="toc-num">3</span>10勝プラベ参加の流れ＆フロー</a>
+      <a class="toc-item" href="#sec4"><span class="toc-num">4</span>サーバー加入時の必須手続き</a>
+      <a class="toc-item" href="#sec5"><span class="toc-num">5</span>DMグループ内のルール・募集規定</a>
+      <a class="toc-item" href="#sec6"><span class="toc-num">6</span>対戦基本ルール</a>
+      <a class="toc-item" href="#sec7"><span class="toc-num">7</span>レーティング＆シーズン規定</a>
+      <a class="toc-item" href="#sec8"><span class="toc-num">8</span>10勝競馬部（観戦予想ミニゲーム）</a>
+      <a class="toc-item" href="#sec9"><span class="toc-num">9</span>観戦・配信・VC規定</a>
+    </div>
+  </nav>
+
+  <!-- ========================================================
+       1
+       ======================================================== -->
+  <section class="sec" id="sec1">
+    <div class="sec-head rise">
+      <div class="sec-badge"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#splat"/></svg><span>1</span></div>
+      <h2 class="sec-title">行動規範・禁止事項・マナー規定</h2>
+    </div>
+
+    <p class="rise">メンバー全員が気持ちよくプレイできる環境を維持するため、以下の行動規範・マナーおよび禁止事項を必ずお守りください。</p>
+
+    <h3 class="rise">【プレイヤー間での配慮・リスペクト】</h3>
+    <ul class="rules rise">
+      <li><strong>批判・誹謗中傷の禁止：</strong>味方や対戦相手など、一緒にプレイするメンバーに対する批判・揶揄・誹謗中傷と捉えられる言動や、SNS（X等）への投稿はお控えください。</li>
+      <li><strong>アドバイスに関する配慮：</strong>試合内容に関するアドバイスは、受け止め方に個人差があります（アドバイスを歓迎する方もいれば、不快に感じる方もいます）。事前に相手へ要否を確認した上で行ってください。</li>
+      <li><strong>適切な距離感・言葉遣い：</strong>まだ関係性が十分に構築されていないメンバーに対しては、距離感や言葉遣いなどの接し方に配慮をお願いいたします。</li>
+    </ul>
+
+    <h3 class="rise">【トラブル・意見相違への対応】</h3>
+    <ul class="rules rise">
+      <li><strong>人間関係のトラブル：</strong>メンバー間のトラブルや人間関係の問題については、原則として個人間での解決をお願いいたします。</li>
+      <li><strong>裁定権限：</strong>本ルールブックに記載のないその他細かいルールや判断が必要な事項については、最終的に主催者の決定に従うものとします。困りごとがあれば運営DMまでお気軽にご相談ください。</li>
+    </ul>
+  </section>
+
+  <!-- ========================================================
+       2
+       ======================================================== -->
+  <section class="sec" id="sec2">
+    <div class="sec-head rise">
+      <div class="sec-badge"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#splat"/></svg><span>2</span></div>
+      <h2 class="sec-title">運営方針・参加前提条件</h2>
+    </div>
+
+    <p class="rise">当コミュニティへの参加にあたり、以下の運営方針および基本前提条件への同意が必要となります。</p>
+
+    <ul class="rules rise">
+      <li><strong>情報公開の了承：</strong>サーバー内において、自身のXPや戦績、各種ランキングデータ等が公開されることについて予めご了承ください。</li>
+      <li><strong>Discord連携の了承：</strong>便利かつ円滑な試合管理・投票機能利用のため、Discordアカウントの連携をしていただくことを前提としています。</li>
+      <li><strong>通話（VC）に関する理解：</strong>ボイスチャット（通話）への参加は必須ではありませんが、スムーズな進行やコミュニケーションの観点から「通話推奨」のサーバーであることをご了承の上でご参加ください。</li>
+      <li><strong>システム開発・動作に関するご理解とご協力：</strong>当サーバーのスコア管理・マッチングシステム等は主催者がAIを用いて独自開発しております。主催者自身はシステム開発やIT技術に疎いため、不具合やバグ等の予期せぬトラブルが発生する場合がございます。システム上のエラー等には寛容なご理解・ご容赦をいただけますようお願いいたします。</li>
+    </ul>
+  </section>
+
+  <!-- ========================================================
+       3
+       ======================================================== -->
+  <section class="sec" id="sec3">
+    <div class="sec-head rise">
+      <div class="sec-badge"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#splat"/></svg><span>3</span></div>
+      <h2 class="sec-title">10勝プラベ参加の流れ＆フロー</h2>
+    </div>
+
+    <p class="rise">10勝プラベの募集から試合完了までの全体フローです。新規参加者の方はまずこの流れをご確認ください。</p>
+
+    <div class="flow-head rise" aria-hidden="true">
+      <span>ステップ</span>
+      <span>内容・手順</span>
+    </div>
+
+    <ol class="flow rise">
+      <li>
+        <div class="flow-tag">STEP 1</div>
+        <div class="flow-body"><strong>募集・応募：</strong> DMグループ等で日時や特殊ルールを明記して募集し、メンバー決定</div>
+      </li>
+      <li>
+        <div class="flow-tag">STEP 2</div>
+        <div class="flow-body"><strong>集合・VC準備：</strong> 指定日時に指定のDiscord部屋（VC推奨）にメンバー集合</div>
+      </li>
+      <li>
+        <div class="flow-tag">STEP 3</div>
+        <div class="flow-body"><strong>メンバー登録：</strong> WebアプリまたはDiscordボットで出走8名をセットアップ</div>
+      </li>
+      <li>
+        <div class="flow-tag">STEP 4</div>
+        <div class="flow-body"><strong>自動チーム分け・試合：</strong> アプリ生成チームに従いプラベ対戦（ガチエリア/おまかせ/ロスト）</div>
+      </li>
+      <li>
+        <div class="flow-tag">STEP 5<small>（任意）</small></div>
+        <div class="flow-body"><strong>競馬・予想：</strong> 出走確定後、第3試合開始前までに10勝競馬部にて賭け枠ベット</div>
+      </li>
+      <li>
+        <div class="flow-tag">STEP 6</div>
+        <div class="flow-body"><strong>勝敗登録・継続：</strong> 各試合結果を入力し、誰か1人が10勝に達するまで対戦継続</div>
+      </li>
+      <li class="is-finish">
+        <div class="flow-tag">FINISH</div>
+        <div class="flow-body"><strong>試合終了・結果確定：</strong> 10勝達成（同点時はExtraマッチ）で終了し、レート・コイン確定</div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ========================================================
+       4
+       ======================================================== -->
+  <section class="sec" id="sec4">
+    <div class="sec-head rise">
+      <div class="sec-badge"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#splat"/></svg><span>4</span></div>
+      <h2 class="sec-title">サーバー加入時の必須手続き</h2>
+    </div>
+
+    <p class="rise">サーバーへ新しく加入する際は、以下のステップを順に行なってください。</p>
+
+    <ol class="steps-num rise">
+      <li>既存メンバーからの了解を得た上で、運営DMへ最高XPおよび紹介者を添えて連絡し、承認を受けること。</li>
+      <li>Discordサーバー加入後は、速やかに運営DMへの加入連絡とDiscord連携（プレイヤー紐付け）の手続きを済ませること。</li>
+    </ol>
+
+    <h3 class="rise">【パワー区分と所属部】（加入手続き時に要確認）</h3>
+
+    <p class="rise">各プレイヤーの評価は「参考XP」で評価されます。基本的には実XP（ガチエリアの最高XP）そのままの数値が適用され、実力に応じた6つの部に分類されますが、実力と実XPが大きく乖離している場合につき、参考XPを主催が決定する場合があります。手続き時に自身のXPをご確認ください（参考XPが境界線上に該当する場合は最大2つの部に所属可能）。</p>
+
+    <div class="table-scroll rise">
+      <table>
+        <thead>
+          <tr><th scope="col">所属部</th><th scope="col">参考XP 区分</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="rank">1部</td><td class="xp">2800 以上</td></tr>
+          <tr><td class="rank">2部</td><td class="xp">2600 以上 3000 未満</td></tr>
+          <tr><td class="rank">3部</td><td class="xp">2400 以上 2800 未満</td></tr>
+          <tr><td class="rank">4部</td><td class="xp">2200 以上 2600 未満</td></tr>
+          <tr><td class="rank">5部</td><td class="xp">2000 以上 2400 未満</td></tr>
+          <tr><td class="rank">6部</td><td class="xp">2200 未満</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="strong-p rise">参考XPの算出・適用仕様：</p>
+    <p class="rise">原則としてプレイヤーの実XPがそのまま「参考XP」として適用されます。（※ただし、稀に実XPと実際のゲーム内実力が大きく乖離していると判断されるプレイヤーについては、運営側で参考XPを手動設定・調整する場合があります。）</p>
+
+    <p class="strong-p rise">【参考XPに基づく所属例】</p>
+    <ul class="examples rise">
+      <li>例1：参考XP 2750.0 ⇒ 2600以上3000未満かつ2400以上2800未満に該当するため、2部および3部に所属</li>
+      <li>例2：参考XP 2575.0 ⇒ 2400以上2800未満かつ2200以上2600未満に該当するため、3部および4部に所属</li>
+      <li>例3：参考XP 2400.0 ⇒ 2400以上2800未満かつ2200以上2600未満に該当するため、3部および4部に所属（※2400未満ではないため5部には該当しません）</li>
+    </ul>
+
+    <p class="verdict rise"><strong>決定権限：</strong>手動設定を含め、最終的な参考XPの数値・割り当ておよび調整については、主催（TKO）に決定権があるものとします。</p>
+  </section>
+
+  <!-- ========================================================
+       5
+       ======================================================== -->
+  <section class="sec" id="sec5">
+    <div class="sec-head rise">
+      <div class="sec-badge"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#splat"/></svg><span>5</span></div>
+      <h2 class="sec-title">DMグループ内のルール・募集規定</h2>
+    </div>
+
+    <p class="rise">各部のDMグループにおけるプラベ等の募集および利用ルールは以下の通りです。</p>
+
+    <h3 class="rise">【基本ルール・募集方法】</h3>
+    <ul class="rules rise">
+      <li><strong>募集場所：</strong>10勝プラベの募集は、原則として各部のDMグループ内で行うものとします。</li>
+      <li><strong>募集内容の明記：</strong>企画・募集を行う際は、「開催日時」および「特別ルールがある場合はその内容」を必ず明記して募集を行ってください。</li>
+      <li><strong>10勝プラベ募集の推奨と特典：</strong>DMグループでは対抗戦や通常のプラベ等の募集も自由に行えますが、当サーバーの趣旨に則り、なるべく10勝プラベの募集用としてご活用いただけますと幸いです。なお、10勝プラベの募集者には特典として「参加お疲れ様コインの＋補正」が付与されます。</li>
+    </ul>
+
+    <h3 class="rise">【制限事項・注意事項】</h3>
+    <ul class="rules rise">
+      <li><strong>参加権利の保障：</strong>DMグループ内での募集においては、特定の参加者を不当に除外せず、グループ内参加希望者の参加権利を保証することとします（※極力、過度な条件付けをした募集は避けてください）。</li>
+    </ul>
+  </section>
+
+  <!-- ========================================================
+       6
+       ======================================================== -->
+  <section class="sec" id="sec6">
+    <div class="sec-head rise">
+      <div class="sec-badge"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#splat"/></svg><span>6</span></div>
+      <h2 class="sec-title">対戦基本ルール</h2>
+    </div>
+
+    <p class="rise">10勝プラベは、ツールを用いて1戦ごとにチーム替え（後衛分けなし）を行い、誰か1人が10勝に達するまでプライベートマッチを実施します。</p>
+
+    <ul class="rules rise">
+      <li><strong>結果登録と取り消し（アプリ案内）：</strong>勝敗結果の登録や入力の巻き戻し・修正などのアプリ詳細手順については、各種アプリ操作マニュアル（アプリ版およびディスコード版）をご確認ください。</li>
+      <li><strong>勝利条件：</strong>参加プレイヤーのうち誰か1人が「10勝」に到達するまでプライベートマッチを継続します。</li>
+      <li><strong>ルール・ステージ設定：</strong>ガチエリア / おまかせ / ロスト。通話（VC）推奨で進行します。</li>
+      <li><strong>オーダー（指示・立ち回り提案）について：</strong>味方のブキ選定や立ち回り行動について「オーダー（指示・提案）」を出すことは可能です。ただし、そのオーダーを了承して実行するかどうかは、オーダーを受けるプレイヤー自身が最終判断を行うものとします（押し付けは禁止です）。</li>
+      <li><strong>回線落ち・復帰不能時の対応（無効試合）：</strong>試合中の回線落ちやチーム設定の誤りが発生した場合は基本的に再戦とします。ただし、回線落ちが復帰しないと判断される場合については「無効試合」扱いとします。無効試合の際は、運営にその旨を報告・連絡した上で、アプリやボットの操作はそのまま放置して問題ありません。</li>
+      <li><strong>単独1位決定戦（Extraマッチ）：</strong>複数プレイヤーが同時に10勝へ到達した場合は試合を終了せず、単独1位（優勝者）が決定するまで「Extraマッチ」として試合を継続します。</li>
+    </ul>
+  </section>
+
+  <!-- ========================================================
+       7
+       ======================================================== -->
+  <section class="sec" id="sec7">
+    <div class="sec-head rise">
+      <div class="sec-badge"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#splat"/></svg><span>7</span></div>
+      <h2 class="sec-title">レーティング＆シーズン規定</h2>
+    </div>
+
+    <ul class="rules rise">
+      <li><strong>計算オン/オフ設定：</strong>新規試合開始時に「レーティング ON/OFF」を設定可能です（OFF設定時は練習試合扱いとなり、レート変動およびコイン補填は発生しません）。</li>
+      <li><strong>評価アルゴリズム：</strong>Glicko-2 レーティングシステムを採用し、個人の実力を算出します。</li>
+      <li><strong>計測完了（ランキング掲載）：</strong>通算50試合を消化すると「計測完了」となり、TOP10ランキング等の公認データに掲載されます。</li>
+      <li><strong>シーズン周期：</strong>約6ヶ月ごとにレーティングがリセットされ、新シーズンが開始されます。</li>
+    </ul>
+  </section>
+
+  <!-- ========================================================
+       8
+       ======================================================== -->
+  <section class="sec" id="sec8">
+    <div class="sec-head rise">
+      <div class="sec-badge"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#splat"/></svg><span>8</span></div>
+      <h2 class="sec-title">10勝競馬部（観戦予想ミニゲーム）</h2>
+    </div>
+
+    <p class="rise">10勝競馬部は、試合の優勝者や勝ち越しプレイヤーをシミュレーションオッズに基づいて予想し、TKOコインを賭ける観戦・応援ミニゲームです。</p>
+
+    <div class="table-scroll rise">
+      <table>
+        <thead>
+          <tr><th scope="col">ベット種類</th><th scope="col">ルールと特徴</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="bet"><span class="bet-chip">単勝</span></td>
+            <td>該当マッチの最終優勝者（10勝到達者）を1名予想します。</td>
+          </tr>
+          <tr>
+            <td class="bet"><span class="bet-chip">勝ち越し</span></td>
+            <td>勝率51%以上で勝ち越すプレイヤーを予想します（1～7名まで指定可）。指定した全員が勝ち越した場合に的中となります。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="rise">競馬部の主な運用ルール</h3>
+    <ul class="rules rise">
+      <li><strong>動的オッズ：</strong>オッズは固定ではなく、出走者の過去戦績から30万回の事前シミュレーションを行い、毎回自動算出されます。</li>
+      <li><strong>投票締め切り：</strong>第3試合の終了時に自動で締め切られます。</li>
+      <li><strong>ベット制限：</strong>最低100コインから100コイン単位で賭けることができます。</li>
+      <li><strong>出走者は自身以外への投票禁止：</strong>試合に出走しているプレイヤー本人は、自身以外へ投票することはできません（勝ち越し、単勝の選択は可）。</li>
+      <li>
+        <strong>優勝ボーナス・補填制度：</strong>
+        <ul class="sub">
+          <li>試合優勝者には <span class="coin">+300 コイン</span> のボーナスが付与されます。</li>
+          <li>レーティングONの試合終了時、参加者の保有コインが1000未満の場合、自動的に <span class="coin">100 コイン</span>（★コイン補正対象者は <span class="coin">200 コイン</span>）が補填されます。</li>
+          <li>保有コインが100未満になると「破産」扱いとなります。</li>
+        </ul>
+      </li>
+      <li><strong>試合中断時：</strong>主催者判断やトラブルにより試合が強制中断された場合、その試合に賭けられていたコインは全額自動返還されます。</li>
+    </ul>
+  </section>
+
+  <!-- ========================================================
+       9
+       ======================================================== -->
+  <section class="sec" id="sec9">
+    <div class="sec-head rise">
+      <div class="sec-badge"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#splat"/></svg><span>9</span></div>
+      <h2 class="sec-title">観戦（オブザーバー）・配信・VC規定</h2>
+    </div>
+
+    <h3 class="rise">観戦（オブザーバー）規定</h3>
+    <ul class="rules rise">
+      <li>他部からの観戦枠募集や、上位プレイヤーへのアドバイス依頼が可能です。</li>
+      <li>観戦用VCへの入退室は原則自由です。双方の合意がある場合、試合中のアドバイスや指導（ガヤ）も認められます。</li>
+    </ul>
+
+    <h3 class="rise">配信・録画・撮影に関する注意点</h3>
+    <ul class="rules rise">
+      <li>プラベ部屋への入室、および試合の録画・配信を行う際は、必ず参加者全員からの事前の承諾を得てください。</li>
+      <li>配信画面や配信内の音声、コメント欄等において、他の参加者に対する不配慮な言動や批判が含まれないよう十分ご留意ください。</li>
+    </ul>
+
+    <h3 class="rise">VC（ボイスチャット）利用時のルール</h3>
+    <ul class="rules rise">
+      <li>VC内での発言においても、相手に対する思いやりとリスペクトをもったコミュニケーションを徹底してください。</li>
+      <li>指示や立ち回りの提案（オーダー）を行う際は押し付けにならないよう配慮し、受ける側も最終判断は自身で行ってください。</li>
+    </ul>
+
+    <h3 class="rise">特別ルールの適用</h3>
+    <p class="rise">参加者全員の了承がある場合に限り、「ノーレート対戦」「部を超えた無制限対戦」「身内限定対戦」などの各種特殊ルールでの開催が認められます。</p>
+  </section>
+
+  <footer class="foot">
+    <svg class="foot-mark" viewBox="0 0 100 100" aria-hidden="true"><use href="#splat"/></svg>
+    <div class="foot-txt">TKO鯖 10勝プラベ部 公式ルールブック</div>
+    <div class="foot-txt foot-ver">V8.2</div>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var items = document.querySelectorAll('.rise');
+
+  if (reduce || !('IntersectionObserver' in window)) {
+    items.forEach(function (el) { el.classList.add('in'); });
+    return;
+  }
+
+  // ヒーローは読み込み直後に順番に立ち上げる
+  requestAnimationFrame(function () {
+    document.querySelectorAll('.hero .rise').forEach(function (el) { el.classList.add('in'); });
+  });
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+
+  items.forEach(function (el) {
+    if (!el.closest('.hero')) io.observe(el);
+  });
+})();
+</script>
+
+</body>
+</html>
