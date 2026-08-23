@@ -56,7 +56,12 @@
   --shadow-lift: 0 2px 4px rgba(28,18,38,.06), 0 18px 40px -18px rgba(28,18,38,.28);
 
   --bar-h: 54px;
-  --measure: 40rem;
+  /* 【幅の統一】ページ全体を1本のカラムに揃える。
+     本文・カード・表・目次・上部バーがすべてこの幅と左右端を共有する。
+     以前は本文だけ --measure で絞っていたため、
+     基本指針カードや目次だけが広く、右端が揃わず本文が細く見えていた。 */
+  --col: 52rem;
+  --measure: 100%;
 
   --f-display: "Dela Gothic One", "Hiragino Sans", "Yu Gothic", sans-serif;
   --f-body: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", sans-serif;
@@ -171,14 +176,21 @@ body::before {
   top: 0;
   z-index: 40;
   height: var(--bar-h);
+  /* 帯は画面幅いっぱい、中身は本文と同じカラムに揃える */
   display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 0 clamp(16px, 4vw, 40px);
+  justify-content: center;
+  padding: 0 clamp(18px, 5vw, 40px);
   background: color-mix(in srgb, var(--bg) 86%, transparent);
   backdrop-filter: blur(14px) saturate(1.4);
   -webkit-backdrop-filter: blur(14px) saturate(1.4);
   border-bottom: 1px solid var(--border);
+}
+.bar-inner {
+  width: 100%;
+  max-width: calc(var(--col) - clamp(18px, 5vw, 40px) * 2);
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
 .bar-mark {
   width: 22px; height: 22px; flex: none;
@@ -213,7 +225,7 @@ body::before {
 .wrap {
   position: relative;
   z-index: 1;
-  max-width: 62rem;
+  max-width: var(--col);
   margin: 0 auto;
   padding: 0 clamp(18px, 5vw, 40px) 96px;
 }
@@ -590,7 +602,7 @@ ul.examples > li {
   display: grid;
   grid-template-columns: 116px 1fr;
   gap: 18px;
-  max-width: 44rem;
+  max-width: 100%;
   margin: 0 0 12px;
   padding: 0 0 10px;
   border-bottom: 2px solid var(--border-firm);
@@ -612,7 +624,7 @@ ul.examples > li {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  max-width: 44rem;
+  max-width: 100%;
 }
 .flow > li {
   position: relative;
@@ -880,9 +892,11 @@ a:focus-visible,
 </svg>
 
 <header class="bar">
-  <svg class="bar-mark" aria-hidden="true"><use href="#splat"/></svg>
-  <div class="bar-title">TKO鯖 10勝プラベ部 公式ルールブック</div>
-  <div class="bar-ver">V8.2</div>
+  <div class="bar-inner">
+    <svg class="bar-mark" aria-hidden="true"><use href="#splat"/></svg>
+    <div class="bar-title">TKO鯖 10勝プラベ部 公式ルールブック</div>
+    <div class="bar-ver">V8.2</div>
+  </div>
 </header>
 
 <div class="wrap">
