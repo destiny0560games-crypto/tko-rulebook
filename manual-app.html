@@ -1,0 +1,1472 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="アプリ版の使い方。ログイン、試合管理、10勝競馬部、統計データ、プラベ均等分け、プレイヤー登録までを網羅した操作マニュアルです。">
+<meta name="theme-color" content="#FF2E88">
+<meta name="format-detection" content="telephone=no">
+
+<!-- Discord / X などにリンクを貼ったときの表示 -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="TKO鯖 10勝プラベ部">
+<meta property="og:title" content="TKO鯖 10勝プラベ部 アプリ版マニュアル">
+<meta property="og:description" content="アプリ版の使い方。ログイン、試合管理、10勝競馬部、統計データ、プラベ均等分け、プレイヤー登録までを網羅した操作マニュアルです。">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:url" content="https://destiny0560games-crypto.github.io/tko-rulebook/manual-app.html">
+<meta property="og:image" content="https://destiny0560games-crypto.github.io/tko-rulebook/ogp-manual-app.png">
+<meta name="twitter:card" content="summary_large_image">
+<title>TKO鯖 10勝プラベ部 アプリ版マニュアル</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Barlow+Semi+Condensed:wght@600;700&display=swap">
+
+<style>
+/* ============================================================
+   TKO鯖 10勝プラベ部 公式ルールブック
+   インク2色（マゼンタ / ターコイズ）を章ごとに交互に振る構成
+   ============================================================ */
+
+/* --- Light（既定） -------------------------------------- */
+:root {
+  --bg:          #FAF6FA;
+  --surface:     #FFFFFF;
+  --surface-2:   #F3ECF4;
+  --surface-3:   #EBE1ED;
+  --text:        #1C1226;
+  --text-mid:    #4A3D56;
+  --text-dim:    #6E6079;
+  --border:      #E4D9E7;
+  --border-firm: #D2C3D7;
+
+  --a-text:      #D6006E;   /* マゼンタ：文字用 */
+  --a-fill:      #FF2E88;   /* マゼンタ：装飾専用（文字を載せない） */
+  --a-strong:    #C4006B;   /* マゼンタ：白文字を載せる面 */
+  --a-soft:      #FFE8F2;
+  --b-text:      #00776E;   /* ターコイズ：文字用 */
+  --b-fill:      #00C4B4;   /* ターコイズ：装飾専用（文字を載せない） */
+  --b-strong:    #00796F;   /* ターコイズ：白文字を載せる面 */
+  --b-soft:      #DEF7F3;
+  --c-text:      #8A5A00;   /* コインのゴールド：文字用 */
+  --c-fill:      #F5A800;
+  --c-soft:      #FFF1D2;
+
+  --on-fill:     #FFFFFF;
+  --shadow:      0 1px 2px rgba(28,18,38,.05), 0 8px 24px -12px rgba(28,18,38,.16);
+  --shadow-lift: 0 2px 4px rgba(28,18,38,.06), 0 18px 40px -18px rgba(28,18,38,.28);
+
+  --bar-h: 54px;
+  /* 【幅の統一】ページ全体を1本のカラムに揃える。
+     本文・カード・表・目次・上部バーがすべてこの幅と左右端を共有する。
+     以前は本文だけ --measure で絞っていたため、
+     基本指針カードや目次だけが広く、右端が揃わず本文が細く見えていた。 */
+  --col: 52rem;
+  --measure: 100%;
+
+  --f-display: "Dela Gothic One", "Hiragino Sans", "Yu Gothic", sans-serif;
+  --f-body: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", sans-serif;
+  --f-label: "Barlow Semi Condensed", "Zen Kaku Gothic New", sans-serif;
+}
+
+/* --- Dark（OS設定。明示的なlight指定には負ける） --------- */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:          #120C1A;
+    --surface:     #1C1428;
+    --surface-2:   #241A33;
+    --surface-3:   #2E2140;
+    --text:        #F4EEF8;
+    --text-mid:    #C6B8D2;
+    --text-dim:    #9C8CAB;
+    --border:      #33253F;
+    --border-firm: #45324F;
+
+    --a-text:      #FF74AE;
+    --a-fill:      #FF2E88;
+    --a-strong:    #FF2E88;
+    --a-soft:      #37132A;
+    --b-text:      #3FE3D0;
+    --b-fill:      #00C4B4;
+    --b-strong:    #00C4B4;
+    --b-soft:      #0B302E;
+    --c-text:      #FFC94D;
+    --c-fill:      #F5A800;
+    --c-soft:      #35270D;
+
+    --on-fill:     #150E1E;
+    --shadow:      0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.7);
+    --shadow-lift: 0 2px 4px rgba(0,0,0,.45), 0 18px 40px -18px rgba(0,0,0,.85);
+  }
+}
+
+/* --- Dark（明示指定。OSがlightでも勝つ） ----------------- */
+:root[data-theme="dark"] {
+  --bg:          #120C1A;
+  --surface:     #1C1428;
+  --surface-2:   #241A33;
+  --surface-3:   #2E2140;
+  --text:        #F4EEF8;
+  --text-mid:    #C6B8D2;
+  --text-dim:    #9C8CAB;
+  --border:      #33253F;
+  --border-firm: #45324F;
+
+  --a-text:      #FF74AE;
+  --a-fill:      #FF2E88;
+  --a-strong:    #FF2E88;
+  --a-soft:      #37132A;
+  --b-text:      #3FE3D0;
+  --b-fill:      #00C4B4;
+  --b-strong:    #00C4B4;
+  --b-soft:      #0B302E;
+  --c-text:      #FFC94D;
+  --c-fill:      #F5A800;
+  --c-soft:      #35270D;
+
+  --on-fill:     #150E1E;
+  --shadow:      0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.7);
+  --shadow-lift: 0 2px 4px rgba(0,0,0,.45), 0 18px 40px -18px rgba(0,0,0,.85);
+}
+
+* { box-sizing: border-box; }
+
+/* 背景のスプラットが画面外へ抜けても横スクロールを出さない。
+   hidden ではなく clip を使う（hidden はスクロールコンテナを作り、
+   上部バーの position: sticky を壊すことがある） */
+html { overflow-x: clip; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--f-body);
+  font-size: 16px;
+  line-height: 1.9;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+/* インクの粒（ページ全体のうっすらした地紋） */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .5;
+  background-image:
+    radial-gradient(circle at 12% 8%,  color-mix(in srgb, var(--a-fill) 9%, transparent) 0, transparent 26%),
+    radial-gradient(circle at 88% 34%, color-mix(in srgb, var(--b-fill) 9%, transparent) 0, transparent 24%),
+    radial-gradient(circle at 20% 78%, color-mix(in srgb, var(--b-fill) 7%, transparent) 0, transparent 22%);
+}
+
+.sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+/* スプラット形はすべて currentColor で塗る（各所で色を切り替えるため） */
+#splat path,
+#splat circle { fill: currentColor; }
+
+/* ============================================================
+   トップバー
+   ============================================================ */
+.bar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  height: var(--bar-h);
+  /* 帯は画面幅いっぱい、中身は本文と同じカラムに揃える */
+  display: flex;
+  justify-content: center;
+  padding: 0 clamp(18px, 5vw, 40px);
+  background: color-mix(in srgb, var(--bg) 86%, transparent);
+  backdrop-filter: blur(14px) saturate(1.4);
+  -webkit-backdrop-filter: blur(14px) saturate(1.4);
+  border-bottom: 1px solid var(--border);
+}
+.bar-inner {
+  width: 100%;
+  max-width: calc(var(--col) - clamp(18px, 5vw, 40px) * 2);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.bar-mark {
+  width: 22px; height: 22px; flex: none;
+  color: var(--a-fill);
+}
+.bar-title {
+  font-family: var(--f-body);
+  font-weight: 900;
+  font-size: 13.5px;
+  letter-spacing: .04em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.bar-ver {
+  margin-left: auto;
+  flex: none;
+  font-family: var(--f-label);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: .1em;
+  padding: 3px 10px;
+  border-radius: 999px;
+  color: var(--b-text);
+  background: var(--b-soft);
+  border: 1px solid color-mix(in srgb, var(--b-fill) 35%, transparent);
+}
+
+/* ============================================================
+   レイアウト
+   ============================================================ */
+.wrap {
+  position: relative;
+  z-index: 1;
+  max-width: var(--col);
+  margin: 0 auto;
+  padding: 0 clamp(18px, 5vw, 40px) 96px;
+}
+.measure { max-width: var(--measure); }
+
+/* ============================================================
+   ヒーロー
+   ============================================================ */
+.hero {
+  position: relative;
+  padding: clamp(56px, 11vw, 108px) 0 clamp(40px, 7vw, 68px);
+}
+.hero-splat {
+  position: absolute;
+  top: -6%;
+  right: -14%;
+  width: clamp(260px, 40vw, 470px);
+  height: auto;
+  color: var(--b-fill);
+  opacity: .16;
+  transform: rotate(-14deg);
+  pointer-events: none;
+  z-index: 0;
+}
+/* :not() で除外しないと、この行が上の position:absolute を打ち消す
+   （同じ詳細度で後勝ちになり、スプラットが本文を押し下げてしまう） */
+.hero > *:not(.hero-splat) { position: relative; z-index: 1; }
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--f-label);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--a-text);
+  margin-bottom: 20px;
+}
+.eyebrow::before {
+  content: "";
+  width: 30px; height: 3px;
+  border-radius: 2px;
+  background: var(--a-fill);
+}
+
+h1 {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: clamp(2.1rem, 7.2vw, 4.15rem);
+  line-height: 1.16;
+  letter-spacing: -.015em;
+  margin: 0 0 8px;
+  text-wrap: balance;
+}
+h1 .h1-sub {
+  display: block;
+  font-size: .53em;
+  color: var(--text-mid);
+  letter-spacing: .01em;
+  margin-bottom: .18em;
+}
+h1 em {
+  font-style: normal;
+  color: var(--a-text);
+}
+
+.ver-line {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 26px 0 30px;
+}
+.ver-chip {
+  font-family: var(--f-display);
+  font-size: 15px;
+  letter-spacing: .02em;
+  padding: 7px 16px;
+  border-radius: 999px;
+  color: var(--on-fill);
+  background: var(--a-strong);
+  box-shadow: var(--shadow);
+}
+.ver-note {
+  font-family: var(--f-label);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.lead {
+  font-size: clamp(1rem, 1.6vw, 1.09rem);
+  line-height: 2.05;
+  color: var(--text-mid);
+  max-width: var(--measure);
+  margin: 0;
+}
+
+/* ============================================================
+   基本指針（章番号なしの導入ブロック）
+   ============================================================ */
+.creed {
+  position: relative;
+  margin: 8px 0 64px;
+  padding: clamp(26px, 4.5vw, 40px) clamp(24px, 4.5vw, 44px);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.creed::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 6px;
+  background: linear-gradient(180deg, var(--a-fill), var(--b-fill));
+}
+.creed h2 {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: clamp(1.15rem, 2.6vw, 1.5rem);
+  line-height: 1.5;
+  margin: 0 0 14px;
+  letter-spacing: .005em;
+}
+.creed p {
+  margin: 0;
+  color: var(--text-mid);
+  max-width: var(--measure);
+}
+
+/* ============================================================
+   目次
+   ============================================================ */
+.toc { margin: 0 0 84px; }
+.toc-head {
+  font-family: var(--f-label);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--border-firm);
+}
+.toc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(238px, 1fr));
+  gap: 10px;
+}
+.toc-item {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 13px 15px;
+  border-radius: 13px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  text-decoration: none;
+  font-size: 14.5px;
+  font-weight: 700;
+  line-height: 1.5;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.toc-item:hover,
+.toc-item:focus-visible {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--a-fill) 45%, var(--border));
+  box-shadow: var(--shadow-lift);
+}
+.toc-num {
+  flex: none;
+  width: 27px; height: 27px;
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+  font-family: var(--f-label);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--on-fill);
+  background: var(--a-strong);
+}
+.toc-item:nth-child(even) .toc-num { background: var(--b-strong); }
+
+/* ============================================================
+   章
+   ============================================================ */
+.sec { margin-bottom: clamp(72px, 10vw, 116px); scroll-margin-top: calc(var(--bar-h) + 20px); }
+
+.sec-head {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 3vw, 26px);
+  margin-bottom: clamp(26px, 4vw, 40px);
+}
+.sec-badge {
+  position: relative;
+  flex: none;
+  width: clamp(66px, 11vw, 88px);
+  height: clamp(66px, 11vw, 88px);
+  display: grid;
+  place-items: center;
+}
+.sec-badge svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--a-strong);
+}
+.sec-badge span {
+  position: relative;
+  font-family: var(--f-display);
+  font-size: clamp(1.5rem, 3.4vw, 2.05rem);
+  line-height: 1;
+  color: var(--on-fill);
+  transform: translateY(1px);
+}
+.sec:nth-of-type(even) .sec-badge svg { color: var(--b-strong); }
+/* シールを貼ったように、章ごとに傾きを変える */
+.sec:nth-of-type(3n)   .sec-badge { transform: rotate(6deg); }
+.sec:nth-of-type(3n+1) .sec-badge { transform: rotate(-7deg); }
+.sec:nth-of-type(3n+2) .sec-badge { transform: rotate(-3deg); }
+
+h2.sec-title {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: clamp(1.28rem, 3.4vw, 2.05rem);
+  line-height: 1.4;
+  letter-spacing: -.005em;
+  margin: 0;
+  text-wrap: balance;
+}
+
+h3 {
+  font-family: var(--f-body);
+  font-weight: 900;
+  font-size: clamp(1.02rem, 2vw, 1.16rem);
+  line-height: 1.6;
+  margin: 48px 0 18px;
+  padding-left: 15px;
+  border-left: 4px solid var(--a-fill);
+  letter-spacing: .01em;
+}
+.sec:nth-of-type(even) h3 { border-left-color: var(--b-fill); }
+
+.sec p {
+  max-width: var(--measure);
+  margin: 0 0 20px;
+  color: var(--text-mid);
+}
+.sec p.strong-p { color: var(--text); font-weight: 700; }
+
+/* --- 箇条書き ------------------------------------------- */
+ul.rules {
+  list-style: none;
+  margin: 0 0 22px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: var(--measure);
+}
+ul.rules > li {
+  position: relative;
+  padding: 15px 18px 15px 42px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  color: var(--text-mid);
+  line-height: 1.85;
+}
+ul.rules > li::before {
+  content: "";
+  position: absolute;
+  left: 17px;
+  top: 25px;
+  width: 11px; height: 11px;
+  border-radius: 4px 8px 5px 9px;
+  background: var(--a-fill);
+  transform: rotate(12deg);
+}
+.sec:nth-of-type(even) ul.rules > li::before { background: var(--b-fill); }
+ul.rules > li strong { color: var(--text); font-weight: 900; }
+
+ul.sub {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+ul.sub > li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text-mid);
+}
+ul.sub > li::before {
+  content: "";
+  position: absolute;
+  left: 2px; top: 12px;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--c-fill);
+}
+
+ol.steps-num {
+  margin: 0 0 22px;
+  padding: 0;
+  list-style: none;
+  counter-reset: sn;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: var(--measure);
+}
+ol.steps-num > li {
+  counter-increment: sn;
+  position: relative;
+  padding: 15px 18px 15px 52px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  color: var(--text-mid);
+}
+ol.steps-num > li::before {
+  content: counter(sn);
+  position: absolute;
+  left: 16px; top: 15px;
+  width: 24px; height: 24px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  font-family: var(--f-label);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--on-fill);
+  background: var(--b-strong);
+}
+
+ul.examples {
+  list-style: none;
+  margin: 0 0 22px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: var(--measure);
+}
+ul.examples > li {
+  padding: 12px 16px;
+  border-radius: 11px;
+  background: var(--surface-2);
+  border: 1px dashed var(--border-firm);
+  font-size: 14.5px;
+  line-height: 1.8;
+  color: var(--text-mid);
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- 参加フロー（章3） ---------------------------------- */
+/* 元表の列見出しを、フロー上部のラベルとして残す */
+.flow-head {
+  display: grid;
+  grid-template-columns: 116px 1fr;
+  gap: 18px;
+  max-width: 100%;
+  margin: 0 0 12px;
+  padding: 0 0 10px;
+  border-bottom: 2px solid var(--border-firm);
+  font-family: var(--f-label);
+  font-weight: 700;
+  font-size: 12.5px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.flow-head span:first-child { text-align: center; }
+.flow-head span:last-child { padding-left: 18px; }
+
+.flow {
+  position: relative;
+  margin: 0 0 8px;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 100%;
+}
+.flow > li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 116px 1fr;
+  gap: 18px;
+  align-items: stretch;
+}
+.flow-tag {
+  position: relative;
+  display: flex;
+  /* 「STEP 5」と「（任意）」が途中で折れないよう縦に積む */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  white-space: nowrap;
+  padding: 12px 8px;
+  border-radius: 12px;
+  background: var(--b-soft);
+  border: 1px solid color-mix(in srgb, var(--b-fill) 40%, transparent);
+  font-family: var(--f-label);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: .07em;
+  text-align: center;
+  line-height: 1.3;
+  color: var(--b-text);
+  text-transform: uppercase;
+}
+.flow-tag small {
+  display: block;
+  font-size: 11px;
+  letter-spacing: .04em;
+  opacity: .85;
+  text-transform: none;
+  font-family: var(--f-body);
+  font-weight: 700;
+}
+/* ステップ間をつなぐ線 */
+.flow > li:not(:last-child) .flow-tag::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  width: 2px;
+  height: 12px;
+  transform: translateX(-50%);
+  background: color-mix(in srgb, var(--b-fill) 45%, transparent);
+}
+.flow-body {
+  padding: 15px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  color: var(--text-mid);
+  line-height: 1.85;
+}
+.flow-body strong { color: var(--text); font-weight: 900; }
+
+.flow > li.is-finish .flow-tag {
+  background: var(--c-fill);
+  border-color: var(--c-fill);
+  color: #2A1B00;
+  letter-spacing: .1em;
+}
+.flow > li.is-finish .flow-body {
+  border-color: color-mix(in srgb, var(--c-fill) 55%, transparent);
+  background: var(--c-soft);
+}
+
+/* --- 表 -------------------------------------------------- */
+.table-scroll {
+  overflow-x: auto;
+  margin: 0 0 22px;
+  max-width: var(--measure);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  background: var(--surface);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  min-width: 340px;
+}
+thead th {
+  text-align: left;
+  padding: 13px 18px;
+  font-family: var(--f-label);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--on-fill);
+  background: var(--a-strong);
+  white-space: nowrap;
+}
+.sec:nth-of-type(even) thead th { background: var(--b-strong); }
+tbody td {
+  padding: 13px 18px;
+  border-top: 1px solid var(--border);
+  color: var(--text-mid);
+  line-height: 1.8;
+  vertical-align: middle;
+}
+tbody tr:nth-child(even) { background: var(--surface-2); }
+td.rank {
+  font-family: var(--f-display);
+  font-size: 15px;
+  color: var(--text);
+  white-space: nowrap;
+  width: 1%;
+}
+td.xp {
+  font-variant-numeric: tabular-nums;
+  font-family: var(--f-label);
+  font-weight: 600;
+  font-size: 16.5px;
+  letter-spacing: .04em;
+  color: var(--text);
+}
+td.bet {
+  white-space: nowrap;
+  width: 1%;
+}
+.bet-chip {
+  display: inline-block;
+  font-family: var(--f-display);
+  font-size: 14px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  color: var(--on-fill);
+  background: var(--b-strong);
+}
+tbody tr:nth-child(2) .bet-chip { background: var(--a-strong); }
+
+/* --- コイン強調 ------------------------------------------ */
+.coin {
+  display: inline-block;
+  font-family: var(--f-label);
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: .04em;
+  font-variant-numeric: tabular-nums;
+  padding: 1px 9px;
+  margin: 0 1px;
+  border-radius: 7px;
+  color: var(--c-text);
+  background: var(--c-soft);
+  border: 1px solid color-mix(in srgb, var(--c-fill) 40%, transparent);
+}
+
+/* --- 権限・裁定のひとこと ------------------------------- */
+.verdict {
+  max-width: var(--measure);
+  margin: 26px 0 0;
+  padding: 17px 20px;
+  border-radius: 13px;
+  background: var(--a-soft);
+  border: 1px solid color-mix(in srgb, var(--a-fill) 34%, transparent);
+  color: var(--text-mid);
+  font-size: 15px;
+  line-height: 1.85;
+}
+.verdict strong { color: var(--a-text); font-weight: 900; }
+
+/* ============================================================
+   フッター
+   ============================================================ */
+.foot {
+  margin-top: clamp(60px, 9vw, 100px);
+  padding-top: 34px;
+  border-top: 2px solid var(--border-firm);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.foot-mark { width: 34px; height: 34px; color: var(--a-fill); flex: none; }
+.foot-txt {
+  font-family: var(--f-label);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.foot-ver { margin-left: auto; }
+
+/* ============================================================
+   演出（読み込み・スクロール）
+   ============================================================ */
+.rise {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .6s cubic-bezier(.2,.7,.3,1), transform .6s cubic-bezier(.2,.7,.3,1);
+}
+.rise.in { opacity: 1; transform: none; }
+.hero .rise { transition-delay: var(--d, 0ms); }
+
+@media (prefers-reduced-motion: reduce) {
+  .rise { opacity: 1; transform: none; transition: none; }
+  * { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+}
+
+a:focus-visible,
+.toc-item:focus-visible {
+  outline: 3px solid var(--a-fill);
+  outline-offset: 3px;
+}
+
+/* ============================================================
+   狭い画面
+   ============================================================ */
+@media (max-width: 620px) {
+  body { font-size: 15.5px; line-height: 1.85; }
+  /* 狭い画面では列が縦積みになるため、見出しも1行にまとめる */
+  .flow-head { grid-template-columns: auto auto; justify-content: start; gap: 10px; }
+  .flow-head span:first-child { text-align: left; }
+  .flow-head span:first-child::after { content: " /"; }
+  .flow-head span:last-child { padding-left: 0; }
+  .flow > li { grid-template-columns: 1fr; gap: 0; }
+  .flow-tag {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: flex-start;
+    gap: 8px;
+    border-radius: 12px 12px 0 0;
+    border-bottom: none;
+    padding: 9px 15px;
+  }
+  .flow-tag small { display: inline; }
+  .flow-body { border-radius: 0 0 12px 12px; }
+  .flow > li:not(:last-child) .flow-tag::after { display: none; }
+  .sec-head { gap: 14px; }
+  .hero-splat { opacity: .09; }
+}
+
+/* ============================================================
+   印刷（PDF配布用）
+   ============================================================ */
+@media print {
+  :root { --bg: #fff; --surface: #fff; --text: #000; --text-mid: #222; }
+  body::before, .hero-splat { display: none; }
+  .bar, .toc { display: none; }
+  .sec { break-inside: avoid-page; margin-bottom: 34px; }
+  .sec-head { break-after: avoid-page; }
+  ul.rules > li, .flow > li, .table-scroll { break-inside: avoid; }
+  .rise { opacity: 1 !important; transform: none !important; }
+}
+</style><style>
+/* スラッシュコマンドなどの等幅表記 */
+code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: .92em;
+  padding: 2px 7px;
+  border-radius: 6px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  /* --a-text だと薄い面の上で 4.44:1 となり基準(4.5)を僅かに割るため、
+     濃い方のトークンを使う（ライト 5.1:1 / ダーク 4.7:1） */
+  color: var(--a-strong);
+  white-space: nowrap;
+}
+
+/* FAQ は「Q. 〜」の後に改行が入るため、行間を少し詰めて塊を読みやすくする */
+#sec9 ul.rules > li { line-height: 1.8; }
+#sec9 ul.rules > li strong { display: inline-block; margin-bottom: 2px; }
+
+/* 3冊を行き来するための切り替え */
+.docnav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 64px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+}
+.docnav-label {
+  width: 100%;
+  font-family: var(--f-label);
+  font-weight: 700;
+  font-size: 12.5px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 4px;
+}
+.docnav a, .docnav span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+.docnav a:hover, .docnav a:focus-visible {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--a-fill) 45%, var(--border));
+  box-shadow: var(--shadow);
+}
+.docnav .is-current {
+  background: var(--a-strong);
+  border-color: var(--a-strong);
+  color: var(--on-fill);
+  cursor: default;
+}
+</style>
+
+</head>
+<body>
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="splat" viewBox="0 0 100 100">
+    <path d="M50 3.5c8.6 0 13.2 5.4 20.4 4.2 8.4-1.4 16.7 4.3 15.6 12.4-.8 6.2 5.6 8.8 8.6 14.8 3.3 6.6-.4 12.4-.4 18.2 0 6.4 4.6 12.4.4 18.4-3.6 5.2-10.2 5.6-12.4 12-2.6 7.6-10.4 12.2-18 9.6-6.2-2.1-10.2 3.6-17.2 4.4-7.4.9-12-3.4-18.3-4.6-7.1-1.3-14.6-2.6-17-9.8-2-6-8.6-7-11.8-12.6C-3.2 65 1.6 59 1.4 52.6 1.2 46.2-2 40.6 1.2 34.6 4 29.4 10.6 27.4 12.3 21c1.9-7.4 7.5-14 15.4-12.9C34.9 9.1 40 3.5 50 3.5Z"/>
+    <circle cx="93" cy="14" r="4.6"/>
+    <circle cx="8.5" cy="86" r="3.8"/>
+    <circle cx="86" cy="90.5" r="2.9"/>
+  </symbol>
+</svg>
+<header class="bar">
+  <div class="bar-inner">
+    <svg class="bar-mark" aria-hidden="true"><use href="#splat"/></svg>
+    <div class="bar-title">TKO鯖 10勝プラベ部 アプリ版マニュアル</div>
+    <div class="bar-ver">V4.0</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section class="hero">
+    <svg class="hero-splat" viewBox="0 0 100 100" aria-hidden="true"><use href="#splat"/></svg>
+
+    <div class="eyebrow rise" style="--d:0ms">App Manual</div>
+
+    <h1 class="rise" style="--d:70ms">
+      <span class="h1-sub">TKO鯖 10勝プラベ部ツール</span>
+      アプリ版<em>マニュアル</em>
+    </h1>
+
+    <div class="ver-line rise" style="--d:140ms">
+      <span class="ver-chip">V4.0</span>
+      <span class="ver-note">2026.08</span>
+    </div>
+
+    <p class="lead rise" style="--d:210ms">
+      ブラウザから使うアプリ版の操作マニュアルです。ログインの方法から、試合管理・10勝競馬部・統計データ・プラベ均等分け・プレイヤー登録までを順に説明します。ルールそのものについては<b>公式ルールブック</b>をご確認ください。本マニュアルの記載がルールブックと食い違う場合は、ルールブックが優先されます。
+    </p>
+  </section>
+
+  <section class="creed rise">
+    <h2>はじめての方へ</h2>
+    <p>
+      アプリの利用には<b>Discordログイン</b>が必要です。TKO鯖に参加しているアカウントでログインしてください。初回だけプレイヤー連携（名前とパスワード）を済ませれば、以降はDiscordログインだけで自分のプレイヤーとして認識され、パスワードの入力は不要になります。試合の記録・レート・コインはすべてDiscord版と共通です。
+    </p>
+  </section>
+
+  <nav class="toc rise" aria-label="目次">
+    <div class="toc-head">Contents</div>
+    <div class="toc-grid">
+      <a class="toc-item" href="#sec1"><span class="toc-num">1</span>はじめに</a>
+      <a class="toc-item" href="#sec2"><span class="toc-num">2</span>ログインとプレイヤー連携</a>
+      <a class="toc-item" href="#sec3"><span class="toc-num">3</span>画面構成と基本操作</a>
+      <a class="toc-item" href="#sec4"><span class="toc-num">4</span>試合管理</a>
+      <a class="toc-item" href="#sec5"><span class="toc-num">5</span>10勝競馬部</a>
+      <a class="toc-item" href="#sec6"><span class="toc-num">6</span>統計データ</a>
+      <a class="toc-item" href="#sec7"><span class="toc-num">7</span>プラベ均等分け</a>
+      <a class="toc-item" href="#sec8"><span class="toc-num">8</span>プレイヤー登録・編集</a>
+      <a class="toc-item" href="#sec9"><span class="toc-num">9</span>よくある質問</a>
+    </div>
+  </nav>
+
+  <nav class="docnav rise" aria-label="関連ドキュメント">
+  <div class="docnav-label">Documents</div>
+  <a href="index.html">📕 公式ルールブック</a>
+  <span class="is-current" aria-current="page">📱 アプリ版マニュアル</span>
+  <a href="manual-discord.html">💬 Discord版マニュアル</a>
+  </nav>
+
+  <!-- 1 -->
+  <section class="sec" id="sec1">
+    <div class="sec-head rise">
+      <div class="sec-badge"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#splat"/></svg><span>1</span></div>
+      <h2 class="sec-title">はじめに</h2>
+    </div>
+
+    <p class="rise">TKO鯖10勝プラベ部ツールは、スプラトゥーンのプライベートマッチにおける試合管理、レーティング計算、賭けゲーム（10勝競馬部）を統合したWebアプリケーションです。アプリ版とDiscord版があり、<b>両者はデータを共有している</b>ため、どちらから操作しても同じ試合・同じ競馬部に反映されます。</p>
+
+    <h3 class="rise">主な機能</h3>
+    <div class="table-scroll rise">
+      <table>
+        <thead><tr><th scope="col">機能</th><th scope="col">内容</th></tr></thead>
+        <tbody>
+          <tr><td class="rank">試合管理</td><td>チーム分け、勝敗登録、戦績管理</td></tr>
+          <tr><td class="rank">10勝競馬部</td><td>試合結果を予想するコイン賭けゲーム</td></tr>
+          <tr><td class="rank">統計データ</td><td>Glicko-2レーティングによる実力評価、各種ランキング・分析</td></tr>
+          <tr><td class="rank">プラベ均等分け</td><td>参考XPを基に、レート計算と無関係な均等チーム分けを生成</td></tr>
+          <tr><td class="rank">プレイヤー管理</td><td>登録情報の編集、武器・XP設定</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="rise">アクセス方法</h3>
+    <p class="rise">Webブラウザから専用URLにアクセスしてご利用ください。スマートフォン・タブレット・PCいずれからもご利用いただけます。URLはサーバー内で案内されています。</p>
+  </section>
+
+  <!-- 2 -->
+  <section class="sec" id="sec2">
+    <div class="sec-head rise">
+      <div class="sec-badge"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#splat"/></svg><span>2</span></div>
+      <h2 class="sec-title">ログインとプレイヤー連携</h2>
+    </div>
+
+    <p class="rise">アプリの利用にはDiscordログインが必要です。TKO鯖に参加しているアカウントでログインしてください。参加していないアカウントではログインできません。</p>
+
+    <h3 class="rise">初回だけ必要な手続き</h3>
+
+    <div class="flow-head rise" aria-hidden="true">
+      <span>ステップ</span>
+      <span>内容・手順</span>
+    </div>
+
+    <ol class="flow rise">
+      <li>
+        <div class="flow-tag">STEP 1</div>
+        <div class="flow-body"><strong>Discordでログイン：</strong> 「Discordでログイン」ボタンを押し、Discordの承認画面で許可します。参加サーバーの確認のため、初回は一度だけ承認画面が表示されます</div>
+      </li>
+      <li>
+        <div class="flow-tag">STEP 2</div>
+        <div class="flow-body"><strong>プレイヤー連携：</strong> まだ連携していない場合、プレイヤー連携の画面が表示されます。自分のプレイヤー名を選び、プレイヤーパスワード（初期値は 1234）を入力して「連携する」を押します</div>
+      </li>
+      <li class="is-finish">
+        <div class="flow-tag">FINISH</div>
+        <div class="flow-body"><strong>以降は自動ログイン：</strong> 一度連携すれば、次回からはDiscordログインだけで自分のプレイヤーとして認識されます。パスワードの入力は不要です</div>
+      </li>
+    </ol>
+
+    <p class="verdict rise"><strong>パスワードが分からない場合：</strong>初期パスワードも分からず連携できない場合は、運営DMまでご連絡ください。管理者がDiscord IDを直接紐付けることができます。パスワードは不要です。</p>
+
+    <h3 class="rise">連携でできるようになること</h3>
+    <ul class="rules rise">
+      <li>アプリ版でパスワードなしでログインできます</li>
+      <li>Discord上から試合操作・競馬投票ができるようになります</li>
+      <li>試合結果通知が自分宛のメンション付きで届きます</li>
+    </ul>
+
+    <p class="rise">まだプレイヤー登録自体をしていない場合は、連携の前に新規登録が必要です。<a href="#sec8">プレイヤー登録・編集</a>をご覧ください。</p>
+  </section>
+
+  <!-- 3 -->
+  <section class="sec" id="sec3">
+    <div class="sec-head rise">
+      <div class="sec-badge"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#splat"/></svg><span>3</span></div>
+      <h2 class="sec-title">画面構成と基本操作</h2>
+    </div>
+
+    <h3 class="rise">タブ構成</h3>
+    <div class="table-scroll rise">
+      <table>
+        <thead><tr><th scope="col">タブ</th><th scope="col">用途</th></tr></thead>
+        <tbody>
+          <tr><td class="rank">🎮 試合管理</td><td>試合開始・進行・勝敗登録</td></tr>
+          <tr><td class="rank">🐴 10勝競馬部</td><td>試合結果へのコイン投票</td></tr>
+          <tr><td class="rank">📊 統計データ</td><td>プレイヤー戦績、ランキング、競馬部ランキング、分析</td></tr>
+          <tr><td class="rank">⚖️ プラベ均等分け</td><td>レート無関係のチーム分け生成</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="rise">共通の操作</h3>
+    <ul class="rules rise">
+      <li><strong>自動更新：</strong>ほとんどの画面は5秒間隔でリアルタイムに自動更新されます。手動での再読み込みは不要です。</li>
+      <li><strong>画面の移動：</strong>ブラウザの戻るボタンは使わず、画面上部のタブから移動してください。</li>
+      <li><strong>Discord版との同期：</strong>アプリ版とDiscord版はデータが連動しています。試合進行や投票などの操作は、他の利用者や別の版にも自動反映されます（5秒以内）。</li>
+    </ul>
+  </section>
+
+  <!-- 4 -->
+  <section class="sec" id="sec4">
+    <div class="sec-head rise">
+      <div class="sec-badge"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#splat"/></svg><span>4</span></div>
+      <h2 class="sec-title">試合管理</h2>
+    </div>
+
+    <h3 class="rise">部屋の選択</h3>
+    <p class="rise">コントロールパネルの選択欄から、試合を行う部屋を選びます。部屋ごとに独立した試合状態が保持されるため、複数の部屋で同時に試合を進行できます。</p>
+
+    <div class="table-scroll rise">
+      <table>
+        <thead><tr><th scope="col">部屋</th><th scope="col">用途</th></tr></thead>
+        <tbody>
+          <tr><td class="rank">部屋①</td><td>試合管理（１部用）</td></tr>
+          <tr><td class="rank">部屋②</td><td>試合管理（２部用）</td></tr>
+          <tr><td class="rank">部屋③</td><td>試合管理（３部用）</td></tr>
+          <tr><td class="rank">その他</td><td>練習試合・特別イベント等</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="rise">なお、プレイヤーの所属部は参考XPに応じた6区分です。部屋は同時進行のための枠であり、所属部とは別のものです。所属部の区分についてはルールブックをご確認ください。</p>
+
+    <h3 class="rise">新しい試合を開始する</h3>
+    <ol class="steps-num rise">
+      <li>「新しい試合を開始」ボタンを押します。</li>
+      <li>固定プレイヤー（主催者など）を選びます。</li>
+      <li>参加者を7人選びます。五十音タブで絞り込めます。</li>
+      <li>★マークを押すと「コイン増量」対象になります。<strong>★は、参加者の募集に携わってくれた人に付けてください。</strong>試合終了時のコイン補填が100コインから200コインに増量されます。</li>
+      <li>「試合開始」ボタンを押すと、自動的にチーム分けが行われます。</li>
+    </ol>
+
+    <h3 class="rise">レーティング計算のON / OFF</h3>
+    <div class="table-scroll rise">
+      <table>
+        <thead><tr><th scope="col">設定</th><th scope="col">動作</th></tr></thead>
+        <tbody>
+          <tr><td class="rank">ON</td><td>試合結果を記録し、Glicko-2レート計算を実施します</td></tr>
+          <tr><td class="rank">OFF</td><td>練習試合扱い。記録されず、レート変動・コイン補填・優勝ボーナスも発生しません</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="rise">マッチング方式</h3>
+    <div class="table-scroll rise">
+      <table>
+        <thead><tr><th scope="col">方式</th><th scope="col">動作</th></tr></thead>
+        <tbody>
+          <tr><td class="rank">完全ランダム<br>（既定）</td><td>同じ勝ち数のプレイヤーの並び順を毎回ランダムに決めます</td></tr>
+          <tr><td class="rank">人ランダム</td><td>その試合の中で同じチームになった回数が少ない人同士が組みやすくなるよう、同じ勝ち数のプレイヤーの並び順を選びます</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <ul class="rules rise">
+      <li>「人ランダム」でも<strong>勝ち数による順位の構造は変わりません。</strong>変わるのは同じ勝ち数の人の並び順だけです。</li>
+      <li>1回のプラベ（約14戦）で同じ相手とばかり同チームになる偏りを軽減します。検証では、同一ペアが同チームになる最大回数が完全ランダム9.7回に対し、人ランダムでは6.0回まで下がりました。</li>
+      <li>設定は試合開始後も保持されます。Discordの募集メッセージおよび試合開始メッセージにも現在の方式が表示されます。</li>
+    </ul>
+
+    <h3 class="rise">チーム分けの仕組み</h3>
+    <p class="rise">チーム分けは、その時点の勝ち数による順位（同じ勝ち数なら同順位）を基に行われます。</p>
+    <ol class="steps-num rise">
+      <li>参加者を勝ち数順に並べます（同じ勝ち数の中の並び順はマッチング方式に従います）。</li>
+      <li>並んだ8人を2つの分け方で試します。<br>パターンA: <strong>1・4・5・8位</strong> vs 残り　／　パターンB: <strong>1・3・6・8位</strong> vs 残り</li>
+      <li>両チームの順位合計の差が小さい方を採用します。</li>
+    </ol>
+
+    <h3 class="rise">1・4・5・8位固定スイッチ</h3>
+    <p class="rise">上記のとおり、通常はパターンAとパターンBを両方試して差が小さい方が選ばれます。このスイッチを入れると、<strong>比較をやめて常にパターンA（1・4・5・8位 vs 2・3・6・7位）で固定</strong>します。</p>
+
+    <div class="table-scroll rise">
+      <table>
+        <thead><tr><th scope="col">設定</th><th scope="col">動作</th></tr></thead>
+        <tbody>
+          <tr><td class="rank">OFF<br>（既定）</td><td>1・4・5・8位と1・3・6・8位の両方を試し、両チームの順位合計の差が小さい方を採用します</td></tr>
+          <tr><td class="rank">ON</td><td>比較せず、常に1・4・5・8位 vs 2・3・6・7位で分けます</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <ul class="rules rise">
+      <li><strong>どちらが均等か：</strong>基本的にはOFF（自動選択）の方が、その場面で差の小さい分け方を選ぶぶん均等になります。</li>
+      <li><strong>ONにする理由：</strong>毎回同じ規則で分かれるため、組み合わせが読みやすく予想しやすくなります。分け方を一定にしたいときに使います。</li>
+      <li>設定は試合が進んでも保持されます。試合開始メッセージにも現在の設定が表示されます。</li>
+    </ul>
+
+    <p class="rise">「手動編集」ボタンで、チーム構成を手動で変更することもできます。</p>
+
+    <h3 class="rise">勝敗の登録と取り消し</h3>
+    <ul class="rules rise">
+      <li><strong>勝者登録：</strong>試合終了後、勝利したチームのボタン（🔴 Alpha勝利 / 🔵 Bravo勝利）を押します。登録すると次の試合のチーム分けが自動的に行われ、Discordにも結果が通知されます。</li>
+      <li><strong>取り消し：</strong>「↩️ 直前の試合を取り消す」ボタンで、誤って登録した結果を取り消せます。複数回押せば過去の試合まで遡って取り消せます。</li>
+    </ul>
+
+    <h3 class="rise">試合の終了</h3>
+    <ul class="rules rise">
+      <li><strong>10勝到達：</strong>いずれかのプレイヤーが10勝に到達した時点で試合終了です。優勝者にはDiscordで通知され、レーティングが更新されます。</li>
+      <li><strong>Extraマッチ：</strong>複数名が同時に10勝へ到達した場合は終了せず、単独1位が決まるまで「Extraマッチ」として試合を継続します。</li>
+      <li><strong>優勝ボーナス：</strong>優勝者には <span class="coin">+300 コイン</span> が付与されます（レーティングONの試合のみ）。</li>
+      <li><strong>中断時のコイン返却：</strong>停電や新規試合による上書きなどで試合が中断された場合、競馬部でベットされていたコインは全額自動的に返却されます。</li>
+    </ul>
+  </section>
+
+  <!-- 5 -->
+  <section class="sec" id="sec5">
+    <div class="sec-head rise">
+      <div class="sec-badge"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#splat"/></svg><span>5</span></div>
+      <h2 class="sec-title">10勝競馬部</h2>
+    </div>
+
+    <p class="rise">10勝競馬部は、試合の優勝者や勝ち越しプレイヤーを予想してTKOコインを賭ける観戦・応援ミニゲームです。Discord連携が済んでいれば、タブを開くだけで自分のコイン残高が表示されます。</p>
+
+    <h3 class="rise">ベットの種類</h3>
+    <div class="table-scroll rise">
+      <table>
+        <thead><tr><th scope="col">ベット種類</th><th scope="col">ルールと特徴</th></tr></thead>
+        <tbody>
+          <tr><td class="bet"><span class="bet-chip">単勝</span></td><td>該当マッチの最終優勝者（10勝到達者）を1名予想します。</td></tr>
+          <tr><td class="bet"><span class="bet-chip">勝ち越し</span></td><td>勝率51%以上で勝ち越すプレイヤーを予想します（1〜7名まで指定可）。指定した全員が勝ち越した場合に的中となります。</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="rise">オッズの仕組み</h3>
+    <p class="rise">オッズは固定値ではありません。出走者それぞれのシーズン勝率と参考XPから、その回の試合を<strong>30万回シミュレーション</strong>して毎回算出されます。強い人が揃った回と実力が拮抗した回とではオッズが変わります。単勝・勝ち越しとも小数第3位まで表示されます。</p>
+
+    <p class="strong-p rise">実力が均等な編成での目安</p>
+    <div class="table-scroll rise">
+      <table>
+        <thead><tr><th scope="col">ベット</th><th scope="col">目安オッズ</th></tr></thead>
+        <tbody>
+          <tr><td class="rank">単勝</td><td class="xp">約 4.800 倍</td></tr>
+          <tr><td class="rank">勝ち越し 1名</td><td class="xp">約 1.268 倍</td></tr>
+          <tr><td class="rank">勝ち越し 2名</td><td class="xp">約 2.932 倍</td></tr>
+          <tr><td class="rank">勝ち越し 3名</td><td class="xp">約 7.559 倍</td></tr>
+          <tr><td class="rank">勝ち越し 4名</td><td class="xp">約 22.614 倍</td></tr>
+          <tr><td class="rank">勝ち越し 5名</td><td class="xp">約 89.886 倍</td></tr>
+          <tr><td class="rank">勝ち越し 6名</td><td class="xp">約 1086 倍</td></tr>
+          <tr><td class="rank">勝ち越し 7名</td><td class="xp">上限（実質的中不能）</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="verdict rise"><strong>7名指名について：</strong>8人中7人が勝ち越すという結果は、勝ち負けの総数が釣り合う都合上ほとんど起こりません。均等な編成で100万回シミュレーションしても一度も発生しませんでした。表示上は高倍率になりますが、実質的に当たらないベットとお考えください。6名指名も同様にかなり稀です。</p>
+
+    <p class="rise">上記はあくまで均等編成での目安です。実際のオッズは毎回「オッズ表示」欄でご確認ください。</p>
+
+    <h3 class="rise">ベットの方法</h3>
+    <ol class="steps-num rise">
+      <li>ベット方式を選びます（単勝 または 勝ち越し）。</li>
+      <li>対象プレイヤーを選びます。</li>
+      <li>ベット額を入力します（100コイン単位、最低100コイン）。</li>
+      <li>「カートに追加」を押します。複数のベットをまとめて追加できます。</li>
+      <li>「ベットを確定」を押すと成立し、「確定済みベット」欄に表示されます。</li>
+    </ol>
+
+    <h3 class="rise">投票の締め切りと取り消し</h3>
+    <ul class="rules rise">
+      <li><strong>締め切り：</strong>投票は第3試合の終了時に自動で締め切られます。それ以降はベットできません。</li>
+      <li><strong>投票全取消（赤色ボタン）：</strong>自分の全てのベットをキャンセルし、コインを全額返還します。</li>
+      <li><strong>投票個別取消（オレンジ色ボタン）：</strong>ベット一覧から削除したいものだけをチェックして削除します。選択した分だけコインが返還されます。</li>
+      <li><strong>出走者の投票制限：</strong>試合に出走しているプレイヤー本人は、自身以外へ投票することはできません（勝ち越し・単勝の選択は可能です）。</li>
+    </ul>
+
+    <h3 class="rise">払い戻しと結果発表</h3>
+    <ul class="rules rise">
+      <li>予想が的中した場合、<strong>賭け金 × オッズ</strong>の払い戻しが自動的にコインへ加算されます。</li>
+      <li>Discordにも結果と払い戻し情報が通知されます。</li>
+      <li>あわせて高配当的中の発表が行われます。(A) その回に的中していた組み合わせのうち配当が高かったものトップ3、(B) 実際に投票されて的中したもののうち配当が高かったトップ3（投票者・オッズ・払戻額）。</li>
+    </ul>
+
+    <h3 class="rise">コイン補填と破産</h3>
+    <ul class="rules rise">
+      <li><strong>コイン補填：</strong>レーティングONの試合終了時、参加者の保有コインが1000未満の場合、自動的に <span class="coin">100 コイン</span>（★コイン補正対象者は <span class="coin">200 コイン</span>）が補填されます。</li>
+      <li><strong>破産：</strong>保有コインが100未満になると「破産」扱いとなり、Discordに通知されます。</li>
+      <li><strong>シーズン切り替え：</strong>シーズンが切り替わるとき、全員のコインがリセットされます。</li>
+      <li><strong>履歴：</strong>コインの増減はすべて履歴に記録されます。投票・投票取消も1件ずつ（対象・掛け金・オッズ付きで）残ります。</li>
+    </ul>
+  </section>
+
+  <!-- 6 -->
+  <section class="sec" id="sec6">
+    <div class="sec-head rise">
+      <div class="sec-badge"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#splat"/></svg><span>6</span></div>
+      <h2 class="sec-title">統計データ</h2>
+    </div>
+
+    <p class="rise">📊 統計データタブから、各種統計情報を確認できます。画面上部の「表示シーズン」でシーズンを切り替えられます。</p>
+
+    <h3 class="rise">ダッシュボード</h3>
+    <div class="table-scroll rise">
+      <table>
+        <thead><tr><th scope="col">項目</th><th scope="col">内容</th></tr></thead>
+        <tbody>
+          <tr><td class="rank">総プレイヤー</td><td>登録されているプレイヤー総数</td></tr>
+          <tr><td class="rank">開催回数</td><td>これまでの開催イベント数</td></tr>
+          <tr><td class="rank">総試合数</td><td>これまでの総試合数</td></tr>
+          <tr><td class="rank">51%超確率</td><td>勝率51%以上のプレイヤーの割合</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="rise">サブタブ</h3>
+    <div class="table-scroll rise">
+      <table>
+        <thead><tr><th scope="col">サブタブ</th><th scope="col">内容</th></tr></thead>
+        <tbody>
+          <tr><td class="rank">プレイヤー情報</td><td>個人の基本情報・レート・戦績・レート履歴グラフ</td></tr>
+          <tr><td class="rank">10勝プラベ<br>ランキング</td><td>レート／総試合数／勝率／勝ち越し率／10勝数／10勝率</td></tr>
+          <tr><td class="rank">その他データ</td><td>各部の所属人数、人気武器TOP5、初手3戦の運命、得意レンジ・役割・武器と勝率</td></tr>
+          <tr><td class="rank">競馬部<br>ランキング</td><td>コイン保有量など競馬部関連のランキング</td></tr>
+          <tr><td class="rank">10勝競馬学</td><td>シミュレーションに基づくオッズの考え方・的中率の解説</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="rise">プレイヤー情報では、基本情報（名前、所属、実XP／参考XP、武器、射程、役割）、レート情報（参加回数、総試合数、レートR、RD、全体順位）、戦績情報（勝利、敗北、勝率、勝ち越し率、10勝数、10勝率）、レート履歴グラフが表示されます。</p>
+
+    <p class="verdict rise"><strong>ランキングの掲載条件：</strong>ランキングは計測完了者（通算50試合以上）を対象としています。部ごとのフィルタリングも可能です。</p>
+  </section>
+
+  <!-- 7 -->
+  <section class="sec" id="sec7">
+    <div class="sec-head rise">
+      <div class="sec-badge"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#splat"/></svg><span>7</span></div>
+      <h2 class="sec-title">プラベ均等分け</h2>
+    </div>
+
+    <p class="rise">レート計算とは無関係に、参考XPを基に戦力が均衡するチーム分けを生成する機能です。8人〜10人のプライベートマッチでの均等分けに使用します。</p>
+
+    <h3 class="rise">使い方</h3>
+    <ol class="steps-num rise">
+      <li>⚖️ プラベ均等分けタブを選びます。</li>
+      <li>五十音タブからプレイヤーを選んで参加者を指定します。</li>
+      <li>8人を選択すると即座に均等分け結果が生成されます。</li>
+      <li>9人・10人の場合は「観戦者」の指定が必要です。各プレイヤーの👁️ボタンで指定・交代できます。上限に達している場合は最初の観戦者と自動で交代します。</li>
+    </ol>
+
+    <div class="table-scroll rise">
+      <table>
+        <thead><tr><th scope="col">参加人数</th><th scope="col">動作</th></tr></thead>
+        <tbody>
+          <tr><td class="rank">7人以下</td><td>チーム分け不可（メッセージ表示）</td></tr>
+          <tr><td class="rank">8人</td><td>即座にチーム分けを実行</td></tr>
+          <tr><td class="rank">9人</td><td>観戦者を1人指定する必要あり</td></tr>
+          <tr><td class="rank">10人</td><td>観戦者を2人指定する必要あり</td></tr>
+          <tr><td class="rank">11人以上</td><td>選択不可</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="rise">結果の見方と注意点</h3>
+    <ul class="rules rise">
+      <li>最大12パターンの候補が表示されます。各パターンにAlpha / Bravoの構成、両チームの平均XPと差分が表示され、<strong>XP差が小さいほど均等</strong>です。</li>
+      <li>参加メンバーをコピーできるボタンがあり、Discordなどへの共有が容易です。</li>
+      <li><strong>この機能はレート計算とは無関係です。</strong>試合結果として記録されず、試合管理画面のリーグにも影響しません。あくまでチーム編成の参考用ツールです。</li>
+    </ul>
+  </section>
+
+  <!-- 8 -->
+  <section class="sec" id="sec8">
+    <div class="sec-head rise">
+      <div class="sec-badge"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#splat"/></svg><span>8</span></div>
+      <h2 class="sec-title">プレイヤー登録・編集</h2>
+    </div>
+
+    <h3 class="rise">実XPと参考XPについて</h3>
+    <p class="rise">XPには実XPと参考XPの2種類がありますが、<strong>入力するのは実XPだけ</strong>です。</p>
+
+    <div class="table-scroll rise">
+      <table>
+        <thead><tr><th scope="col">項目</th><th scope="col">内容</th></tr></thead>
+        <tbody>
+          <tr><td class="rank">実XP</td><td>自分で入力する実際のXP（ガチエリアの最高XP）。小数第1位まで入力できます</td></tr>
+          <tr><td class="rank">参考XP</td><td>所属部の判定に使われる値。原則として実XPがそのまま適用されます</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="verdict rise"><strong>50刻みの丸めは廃止されました。</strong>以前は実XPを50刻みに丸めて参考XPとしていましたが、現在は実XPの値がそのまま参考XPになります。ただし、実力と実XPが大きく乖離していると判断される場合には、運営側で参考XPを手動設定することがあります。最終的な参考XPの決定権は主催（TKO）にあります。</p>
+
+    <h3 class="rise">バッジの意味</h3>
+    <div class="table-scroll rise">
+      <table>
+        <thead><tr><th scope="col">バッジ</th><th scope="col">意味</th></tr></thead>
+        <tbody>
+          <tr><td class="rank">「仮」（橙）</td><td>まだ本人が実XPを入力しておらず、旧来の参考XPから引き継いだ仮の値が入っている状態です。ご自身の実XPを入力すると解除されます</td></tr>
+          <tr><td class="rank">「手動」（青）</td><td>参考XPが手動で設定されている状態です。実XPから算出される自動値が手動値以上になると、自動的に解除され通常の自動算出に戻ります</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="rise">「仮」バッジが付いている方は、正確な部の判定のためにお早めに実XPの入力をお願いします。</p>
+
+    <h3 class="rise">新規登録</h3>
+    <ol class="steps-num rise">
+      <li>「新規登録」ボタンを押します。</li>
+      <li>名前（10文字以内）、実XP（小数第1位まで）、武器（最大8つまで）を入力します。</li>
+      <li>自分自身の登録であれば「自分のDiscordアカウントとこのプレイヤーを連携する」にチェックを入れます。他人の代理登録の場合はチェックを外してください（後で本人が連携できます）。</li>
+      <li>「保存」ボタンを押します。</li>
+    </ol>
+
+    <h3 class="rise">登録情報の編集</h3>
+    <p class="rise">「登録情報変更」ボタンから、名前・実XP・武器を編集できます。Discord連携済みであれば、パスワードなしで自分の情報を編集できます。管理者は対象プレイヤーを選んで編集することもできます。</p>
+  </section>
+
+  <!-- 9 -->
+  <section class="sec" id="sec9">
+    <div class="sec-head rise">
+      <div class="sec-badge"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#splat"/></svg><span>9</span></div>
+      <h2 class="sec-title">よくある質問</h2>
+    </div>
+
+    <ul class="rules rise">
+      <li><strong>Q. パスワードを忘れました。ログインできますか？</strong><br>一度Discord連携が済んでいれば、パスワードは不要です。まだ連携していない状態でパスワードも分からない場合は、運営DMまでご連絡ください。管理者がDiscord IDを直接紐付けられます。</li>
+      <li><strong>Q. ログアウトはできますか？</strong><br>アプリ内にログアウトの操作はありません。Discordログインの状態は保持され、次回以降も自動的に自分のプレイヤーとして認識されます。</li>
+      <li><strong>Q. レーティングはどのように計算されますか？</strong><br>Glicko-2レーティングシステムを採用しています。チーム戦として各試合の結果が反映され、相手チームの平均レートと自チームの勝敗によってレートが変動します。</li>
+      <li><strong>Q. 計測完了者とは何ですか？</strong><br>通算50試合以上を消化したプレイヤーです。この基準を満たすとTOP10ランキング等の公認データに掲載されます。</li>
+      <li><strong>Q. 実XPは何を入れればいいですか？</strong><br>ご自身の実際のXP（ガチエリアの最高XP）を小数第1位まで入力してください。参考XPと所属部は自動で判定されます。50刻みで入力する必要はありません。</li>
+      <li><strong>Q. オッズが試合ごとに違うのはなぜですか？</strong><br>オッズは固定値ではなく、その回の出走者の勝率と参考XPからシミュレーションして毎回算出しているためです。実力が拮抗した回とそうでない回とではオッズが変わります。</li>
+      <li><strong>Q. 試合が始まったのに投票できません。</strong><br>試合開始直後はオッズの算出中です。算出が終わると自動的に投票できるようになり、Discordにも投票パネルが投稿されます。少しお待ちください。</li>
+      <li><strong>Q. コインが足りません。</strong><br>レーティングONの試合に参加すると、終了時に保有コインが1000未満であれば自動的に100コイン（★対象者は200コイン）が補填されます。</li>
+      <li><strong>Q. 「人ランダム」にすると何が変わりますか？</strong><br>同じ勝ち数の人の並び順の決め方だけが変わります。同じ相手とばかり同チームになる偏りが減ります。勝ち数による順位構造やチームの実力バランスは変わりません。</li>
+      <li><strong>Q. 10勝が同時に出た場合はどうなりますか？</strong><br>そこでは終了せず、Extraマッチを続けて単独1位が決まるまで試合を行います。</li>
+      <li><strong>Q. 後衛分けが不公平に感じます。</strong><br>そういうもんです。いろんな勝ち方を模索してみましょう。</li>
+      <li><strong>Q. プラベ均等分けと通常のチーム分けの違いは？</strong><br>通常のチーム分けは「勝ち数による順位」を基準に行い、試合結果として記録されレートに反映されます。プラベ均等分けは「参考XP」を基準に行い、記録もレート計算もされません。練習・カジュアル向けの機能です。</li>
+      <li><strong>Q. Discord版とどちらを使えばいいですか？</strong><br>両方とも同等の機能を提供します。詳細な統計確認・プラベ均等分け・複数操作の一括実行はアプリ版が、スマホからの素早い操作・コイン補正対象者の選択・募集機能はDiscord版が便利です。</li>
+    </ul>
+  </section>
+
+  <footer class="foot">
+    <svg class="foot-mark" viewBox="0 0 100 100" aria-hidden="true"><use href="#splat"/></svg>
+    <div class="foot-txt">TKO鯖 10勝プラベ部 アプリ版マニュアル</div>
+    <div class="foot-txt foot-ver">V4.0</div>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var items = document.querySelectorAll('.rise');
+  if (reduce || !('IntersectionObserver' in window)) {
+    items.forEach(function (el) { el.classList.add('in'); });
+    return;
+  }
+  requestAnimationFrame(function () {
+    document.querySelectorAll('.hero .rise').forEach(function (el) { el.classList.add('in'); });
+  });
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+  items.forEach(function (el) { if (!el.closest('.hero')) io.observe(el); });
+})();
+</script>
+
+</body>
+</html>

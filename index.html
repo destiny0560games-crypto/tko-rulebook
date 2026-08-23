@@ -876,6 +876,25 @@ a:focus-visible,
   ul.rules > li, .flow > li, .table-scroll { break-inside: avoid; }
   .rise { opacity: 1 !important; transform: none !important; }
 }
+
+/* スラッシュコマンドなどの等幅表記 */
+code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: .92em;
+  padding: 2px 7px;
+  border-radius: 6px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  /* --a-text だと薄い面の上で 4.44:1 となり基準(4.5)を僅かに割るため、
+     濃い方のトークンを使う（ライト 5.1:1 / ダーク 4.7:1） */
+  color: var(--a-strong);
+  white-space: nowrap;
+}
+
+/* FAQ は「Q. 〜」の後に改行が入るため、行間を少し詰めて塊を読みやすくする */
+#sec9 ul.rules > li { line-height: 1.8; }
+#sec9 ul.rules > li strong { display: inline-block; margin-bottom: 2px; }
+
 </style>
 
 <!-- インクのスプラット形（章バッジ・装飾で使い回す） -->
