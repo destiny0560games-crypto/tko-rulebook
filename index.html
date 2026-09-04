@@ -320,6 +320,14 @@ h1 em {
   color: var(--text-dim);
 }
 
+.lead-head {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+  color: var(--a-text);
+  margin: 4px 0 16px;
+  letter-spacing: .01em;
+}
 .lead {
   font-size: clamp(1rem, 1.6vw, 1.09rem);
   line-height: 2.05;
@@ -327,6 +335,7 @@ h1 em {
   max-width: var(--measure);
   margin: 0;
 }
+.lead + .lead { margin-top: 1em; }
 
 /* ============================================================
    基本指針（章番号なしの導入ブロック）
@@ -959,8 +968,19 @@ code {
       <span class="ver-note">New Member Guide</span>
     </div>
 
-    <p class="lead rise" style="--d:210ms">
-      本ルールブックは、TKO鯖 10勝プラベ部における運営方針、全体の参加フロー、サーバー加入手続き、DMグループ利用規定、対戦ルール、レーティングシステム、およびミニゲーム（10勝競馬部）の規定をまとめた新規メンバー向けの公式ガイドラインです。すべての参加者が快適かつ高め合える環境を維持するため、ルールおよびマナーを遵守してご参加ください。
+    <h2 class="lead-head rise" style="--d:210ms">はじめに</h2>
+
+    <p class="lead rise" style="--d:250ms">
+      TKO鯖 10勝プラベ部は、30代を中心としたメンバーが集まり、「10勝プラベ」ルールを中心に活動する『スプラトゥーン』の招待制コミュニティです。
+    </p>
+    <p class="lead rise" style="--d:290ms">
+      当コミュニティでは、参加者の実力を示す独自のレーティングシステムを導入しています。また、ミニゲーム「10勝競馬部」、誰でも自由に楽しめる観戦、熱いバトルが繰り広げられる「鯖内大会」など、さまざまな企画を通じて活動しています。
+    </p>
+    <p class="lead rise" style="--d:330ms">
+      本ルールブックは、新規メンバーの皆さまに向けて、当コミュニティにおける運営方針や参加の流れ、サーバーへの加入手続き、DMグループの利用規定、対戦ルール、レーティングシステム、ならびにミニゲーム「10勝競馬部」の規定をまとめた公式ガイドラインです。
+    </p>
+    <p class="lead rise" style="--d:370ms">
+      すべての参加者が快適に楽しみ、ともに高め合える環境を維持するため、本ルールブックに定めるルールおよびマナーを遵守したうえでご参加ください。
     </p>
   </section>
 
