@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="TKO鯖 10勝プラベ部の公式ルールブック V8.3。行動規範、参加フロー、サーバー加入手続き、対戦ルール、レーティング、10勝競馬部の規定をまとめた新規メンバー向けガイドラインです。">
+<meta name="description" content="TKO鯖 10勝プラベ部の公式ルールブック V8.4。行動規範、参加フロー、サーバー加入手続き、対戦ルール、レーティング、10勝競馬部の規定をまとめた新規メンバー向けガイドラインです。">
 <meta name="theme-color" content="#FF2E88">
 <meta name="format-detection" content="telephone=no">
 
 <!-- Discord / X などにリンクを貼ったときの表示 -->
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="TKO鯖 10勝プラベ部">
-<meta property="og:title" content="TKO鯖 10勝プラベ部 公式ルールブック V8.3">
+<meta property="og:title" content="TKO鯖 10勝プラベ部 公式ルールブック V8.4">
 <meta property="og:description" content="行動規範、参加フロー、サーバー加入手続き、対戦ルール、レーティング、10勝競馬部の規定をまとめた新規メンバー向けガイドライン。">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:url" content="https://destiny0560games-crypto.github.io/tko-rulebook/">
@@ -320,6 +320,14 @@ h1 em {
   color: var(--text-dim);
 }
 
+.lead-head {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+  color: var(--a-text);
+  margin: 4px 0 16px;
+  letter-spacing: .01em;
+}
 .lead {
   font-size: clamp(1rem, 1.6vw, 1.09rem);
   line-height: 2.05;
@@ -327,6 +335,7 @@ h1 em {
   max-width: var(--measure);
   margin: 0;
 }
+.lead + .lead { margin-top: 1em; }
 
 /* ============================================================
    基本指針（章番号なしの導入ブロック）
@@ -696,6 +705,27 @@ ul.examples > li {
   background: var(--c-soft);
 }
 
+/* --- 招待制の告知 ------------------------------------------ */
+.notice-invite {
+  margin: 0 0 18px;
+  padding: 16px 20px;
+  max-width: var(--measure);
+  background: var(--a-soft);
+  border: 2px solid var(--a-fill);
+  border-radius: 13px;
+}
+.notice-invite .notice-title {
+  margin: 0;
+  font-weight: 900;
+  font-size: 1.15em;
+  color: var(--a-text);
+}
+.notice-invite p {
+  margin: 8px 0 0;
+  color: var(--text-mid);
+  line-height: 1.85;
+}
+
 /* --- 表 -------------------------------------------------- */
 .table-scroll {
   overflow-x: auto;
@@ -815,6 +845,15 @@ tbody tr:nth-child(2) .bet-chip { background: var(--a-strong); }
 }
 .foot-ver { margin-left: auto; }
 
+/* 【2026-09 追加】商標に関する免責表示（フッター直後に小さく表示） */
+.legal-note {
+  width: 100%;
+  margin-top: 14px;
+  font-size: 11px;
+  line-height: 1.6;
+  color: var(--text-dim);
+}
+
 /* ============================================================
    演出（読み込み・スクロール）
    ============================================================ */
@@ -914,7 +953,7 @@ code {
   <div class="bar-inner">
     <svg class="bar-mark" aria-hidden="true"><use href="#splat"/></svg>
     <div class="bar-title">TKO鯖 10勝プラベ部 公式ルールブック</div>
-    <div class="bar-ver">V8.3</div>
+    <div class="bar-ver">V8.4</div>
   </div>
 </header>
 
@@ -934,12 +973,23 @@ code {
     </h1>
 
     <div class="ver-line rise" style="--d:140ms">
-      <span class="ver-chip">V8.3</span>
+      <span class="ver-chip">V8.4</span>
       <span class="ver-note">New Member Guide</span>
     </div>
 
-    <p class="lead rise" style="--d:210ms">
-      本ルールブックは、TKO鯖 10勝プラベ部における運営方針、全体の参加フロー、サーバー加入手続き、DMグループ利用規定、対戦ルール、レーティングシステム、およびミニゲーム（10勝競馬部）の規定をまとめた新規メンバー向けの公式ガイドラインです。すべての参加者が快適かつ高め合える環境を維持するため、ルールおよびマナーを遵守してご参加ください。
+    <h2 class="lead-head rise" style="--d:210ms">はじめに</h2>
+
+    <p class="lead rise" style="--d:250ms">
+      TKO鯖 10勝プラベ部は、30代を中心としたメンバーが集まり、「10勝プラベ」ルールを中心に活動する『スプラトゥーン』の招待制コミュニティです。
+    </p>
+    <p class="lead rise" style="--d:290ms">
+      当コミュニティでは、参加者の実力を示す独自のレーティングシステムを導入しています。また、ミニゲーム「10勝競馬部」、誰でも自由に楽しめる観戦、熱いバトルが繰り広げられる「鯖内大会」など、さまざまな企画を通じて活動しています。
+    </p>
+    <p class="lead rise" style="--d:330ms">
+      本ルールブックは、新規メンバーの皆さまに向けて、当コミュニティにおける運営方針や参加の流れ、サーバーへの加入手続き、DMグループの利用規定、対戦ルール、レーティングシステム、ならびにミニゲーム「10勝競馬部」の規定をまとめた公式ガイドラインです。
+    </p>
+    <p class="lead rise" style="--d:370ms">
+      すべての参加者が快適に楽しみ、ともに高め合える環境を維持するため、本ルールブックに定めるルールおよびマナーを遵守したうえでご参加ください。
     </p>
   </section>
 
@@ -1068,6 +1118,11 @@ code {
     <div class="sec-head rise">
       <div class="sec-badge"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#splat"/></svg><span>4</span></div>
       <h2 class="sec-title">サーバー加入時の必須手続き</h2>
+    </div>
+
+    <div class="notice-invite rise">
+      <p class="notice-title">⚠️ 本サーバーは招待制です</p>
+      <p>既存メンバーからの紹介がない場合、参加することはできません。</p>
     </div>
 
     <p class="rise">サーバーへ新しく加入する際は、以下のステップを順に行ってください。</p>
@@ -1263,8 +1318,10 @@ code {
   <footer class="foot">
     <svg class="foot-mark" viewBox="0 0 100 100" aria-hidden="true"><use href="#splat"/></svg>
     <div class="foot-txt">TKO鯖 10勝プラベ部 公式ルールブック</div>
-    <div class="foot-txt foot-ver">V8.3</div>
+    <div class="foot-txt foot-ver">V8.4</div>
   </footer>
+
+  <p class="legal-note">このウェブサイトは任天堂とは関係ありません。すべての製品名、ロゴ、ブランドはそれぞれの所有者に帰属します。</p>
 
 </div>
 
