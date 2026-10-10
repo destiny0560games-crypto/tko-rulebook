@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="TKO鯖 10勝プラベ部の公式ルールブック V8.5。行動規範、参加フロー、サーバー加入手続き、対戦ルール、レーティング、10勝競馬部の規定をまとめた新規メンバー向けガイドラインです。">
+<meta name="description" content="TKO鯖 10勝プラベ部の公式ルールブック V8.8。行動規範、参加フロー、サーバー加入手続き、対戦ルール、レーティング、10勝競馬部の規定をまとめた新規メンバー向けガイドラインです。">
 <meta name="theme-color" content="#FF2E88">
 <meta name="format-detection" content="telephone=no">
 
 <!-- Discord / X などにリンクを貼ったときの表示 -->
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="TKO鯖 10勝プラベ部">
-<meta property="og:title" content="TKO鯖 10勝プラベ部 公式ルールブック V8.5">
+<meta property="og:title" content="TKO鯖 10勝プラベ部 公式ルールブック V8.8">
 <meta property="og:description" content="行動規範、参加フロー、サーバー加入手続き、対戦ルール、レーティング、10勝競馬部の規定をまとめた新規メンバー向けガイドライン。">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:url" content="https://destiny0560games-crypto.github.io/tko-rulebook/">
@@ -725,6 +725,24 @@ ul.examples > li {
   color: var(--text-mid);
   line-height: 1.85;
 }
+/* 特別ルール（6章の先頭に大きく出す） */
+.notice-special {
+  margin: 0 0 22px;
+  padding: 18px 22px;
+  max-width: var(--measure);
+  background: var(--b-soft);
+  border: 3px solid var(--b-fill);
+  border-radius: 14px;
+}
+.notice-special .notice-title {
+  margin: 0;
+  font-weight: 900;
+  font-size: 1.35em;
+  color: var(--b-text);
+}
+.notice-special p { margin: 10px 0 0; color: var(--text); line-height: 1.9; font-size: 1.06em; }
+.notice-special ul { margin: 10px 0 0; padding-left: 1.3em; line-height: 1.9; font-size: 1.06em; }
+.notice-special li { margin: 2px 0; }
 
 /* --- 表 -------------------------------------------------- */
 .table-scroll {
@@ -953,7 +971,7 @@ code {
   <div class="bar-inner">
     <svg class="bar-mark" aria-hidden="true"><use href="#splat"/></svg>
     <div class="bar-title">TKO鯖 10勝プラベ部 公式ルールブック</div>
-    <div class="bar-ver">V8.5</div>
+    <div class="bar-ver">V8.8</div>
   </div>
 </header>
 
@@ -973,7 +991,7 @@ code {
     </h1>
 
     <div class="ver-line rise" style="--d:140ms">
-      <span class="ver-chip">V8.5</span>
+      <span class="ver-chip">V8.8</span>
       <span class="ver-note">New Member Guide</span>
     </div>
 
@@ -1082,11 +1100,11 @@ code {
     <ol class="flow rise">
       <li>
         <div class="flow-tag">STEP 1</div>
-        <div class="flow-body"><strong>募集・応募：</strong> DMグループ等で日時や特殊ルールを明記して募集し、メンバー決定</div>
+        <div class="flow-body"><strong>募集・開催案内：</strong> 募集フォーラム（またはDMグループ）で、日時と特別ルール（ある場合）を明記して募集し、8人そろったら開催案内を出す</div>
       </li>
       <li>
         <div class="flow-tag">STEP 2</div>
-        <div class="flow-body"><strong>集合・VC準備：</strong> 指定日時に指定のDiscord部屋（VC推奨）にメンバー集合</div>
+        <div class="flow-body"><strong>集合・VC準備：</strong> 指定日時に指定のDiscord部屋（VC推奨）にメンバー集合（開始15分前に参加者へリマインドが届きます）</div>
       </li>
       <li>
         <div class="flow-tag">STEP 3</div>
@@ -1130,6 +1148,7 @@ code {
     <ol class="steps-num rise">
       <li>既存メンバーからの了解を得た上で、運営DMへ最高XPおよび紹介者を添えて連絡し、承認を受けること。</li>
       <li>Discordサーバー加入後は、速やかに運営DMへの加入連絡とDiscord連携（プレイヤー紐付け）の手続きを済ませること。</li>
+      <li>プレイヤー登録のあとにDMで届く案内に従い、使う武器とメイン武器を登録すること（チーム分けのバランスや統計に使われます）。</li>
     </ol>
 
     <h3 class="rise">【パワー区分と所属部】（加入手続き時に要確認）</h3>
@@ -1198,7 +1217,19 @@ code {
       <h2 class="sec-title">対戦基本ルール</h2>
     </div>
 
-    <p class="rise">10勝プラベは、ツールを用いて1戦ごとにチーム替え（後衛分けなし）を行い、誰か1人が10勝に達するまでプライベートマッチを実施します。</p>
+    <p class="rise">10勝プラベは、ツールを用いて1戦ごとにチーム替えを行い、誰か1人が10勝に達するまでプライベートマッチを実施します。チーム分けは勝ち数の順位をもとにツールが自動で行い、<strong>後衛（長射程）の振り分けは原則として行いません</strong>。ただし、参加者が希望する場合に限り、ツールの「後衛分けスイッチ」で指定した2人を、毎回必ず別のチームに分けることができます（使い方は各マニュアルを参照）。</p>
+
+    <div class="notice-special rise">
+      <p class="notice-title">📌 特別ルールの適用</p>
+      <p>参加者全員の了承がある場合に限り、次のような特別ルールでの開催が認められます。</p>
+      <ul>
+        <li><strong>ノーレート対戦</strong>（レーティングOFF。レート変動・コイン補填なし）</li>
+        <li><strong>部を超えた無制限対戦</strong></li>
+        <li><strong>身内限定対戦</strong></li>
+        <li>そのほか、参加者全員が了承したルール</li>
+      </ul>
+      <p>特別ルールで開催する場合は、<strong>募集時と開催案内の両方に、その内容を必ず明記してください</strong>（ツールの「参加者募集」「開催案内」には特別ルールの入力欄があります）。</p>
+    </div>
 
     <ul class="rules rise">
       <li><strong>結果登録と取り消し（アプリ案内）：</strong>勝敗結果の登録や入力の巻き戻し・修正などのアプリ詳細手順については、各種アプリ操作マニュアル（アプリ版およびDiscord版）をご確認ください。</li>
@@ -1212,7 +1243,32 @@ code {
           <li>なお、レーティングやオッズの算出はプレイヤー単位で行われるため、持ち替えたこと自体がレートや競馬のオッズに直接影響することはありません。</li>
         </ul>
       </li>
-      <li><strong>回線落ち・復帰不能時の対応（無効試合）：</strong>試合中の回線落ちやチーム設定の誤りが発生した場合は基本的に再戦とします。ただし、回線落ちしたプレイヤーが復帰できないと判断される場合については「無効試合」扱いとします。無効試合の際は、運営にその旨を報告・連絡した上で、アプリやボットの操作はそのまま放置して問題ありません。</li>
+      <li><strong>回線落ち・復帰不能時の対応（無効試合）：</strong>試合中の回線落ちやチーム設定の誤りが発生した場合は基本的に再戦とします。ただし、回線落ちしたプレイヤーが復帰できないと判断される場合については「無効試合」扱いとします。無効試合とする際は、下の「試合の中止」の手順で中止してください。
+        <ul class="sub">
+          <li><strong>例外（途中交代）：</strong>体調不良・回線トラブル・急用などで続行できないプレイヤーが出た場合は、無効試合とせず、<strong>途中交代</strong>で試合を続けることもできます（下記）。</li>
+        </ul>
+      </li>
+      <li>
+        <strong>途中交代：</strong>続行できないプレイヤー（離脱者）の代わりに、別のプレイヤー（参入者）が入って試合を続けられます。
+        <ul class="sub">
+          <li>操作はDiscordのツールパネル「🔄 途中交代」から行います。操作できるのは、その部屋の出走者・管理者・運営部です（ほかの参加者の同意は不要）。</li>
+          <li>参入者は、今どの試合にも出ていない登録済みのプレイヤーに限ります。次の試合から、離脱者のチーム（枠）にそのまま入ります。</li>
+          <li><strong>試合の進行：</strong>参入者は「離脱者の戦績＋参入者の戦績」で試合を続けます。参入者が10勝に達した場合は、参入者の優勝（10勝）とします。<br>例：Aが4勝2敗で離脱し、参入者Bがその後6勝1敗 → Bは10勝3敗となり優勝。</li>
+          <li><strong>レーティング：</strong>それぞれが実際に出た試合だけで計算します（上の例では、Aは4勝2敗、Bは6勝1敗として計算。優勝の記録はBにだけ付きます）。</li>
+          <li><strong>コイン：</strong>参加コイン・コイン増量（★）は、最後まで出た参入者に配られます。</li>
+          <li><strong>10勝競馬部：</strong>途中交代が起きた試合の投票は、すべて払い戻し（全額返却）となり、以降その試合への投票はできません。</li>
+          <li>交代の回数に上限はなく、参入者がさらに交代することもできます。</li>
+        </ul>
+      </li>
+      <li>
+        <strong>試合の中止：</strong>試合を続けられない場合は、試合を中止（無効試合）にできます。
+        <ul class="sub">
+          <li>Discordのツールパネル「⛔ 試合中止」から、中止する部屋を選んで提案します。提案できるのは、管理者・運営部・いずれかの試合に出走中のプレイヤーです。</li>
+          <li>提案すると、その部屋に「同意する／同意しない」のボタンが出ます。その部屋の出走者のうち<strong>4人が同意</strong>した時点で中止となります。<strong>5人が同意しない</strong>を選んだ場合、または<strong>20分</strong>以内に決まらなかった場合は、提案は取り下げとなります。</li>
+          <li>管理者・運営部は、同意を待たずに中止できます。</li>
+          <li>中止した試合は勝敗・レートを記録せず、参加コインも配られません。投票はすべて払い戻されます。</li>
+        </ul>
+      </li>
       <li><strong>単独1位決定戦（Extraマッチ）：</strong>複数プレイヤーが同時に10勝へ到達した場合は試合を終了せず、単独1位（優勝者）が決定するまで「Extraマッチ」として試合を継続します。</li>
     </ul>
   </section>
@@ -1231,6 +1287,8 @@ code {
       <li><strong>評価アルゴリズム：</strong>Glicko-2 レーティングシステムを採用し、個人の実力を算出します。</li>
       <li><strong>計測完了（ランキング掲載）：</strong>通算50試合を消化すると「計測完了」となり、TOP10ランキング等の公認データに掲載されます。</li>
       <li><strong>シーズン周期：</strong>約6ヶ月ごとにレーティングがリセットされ、新シーズンが開始されます。</li>
+      <li><strong>称号：</strong>シーズンの成績や活動に応じて称号が付きます（アプリのプレイヤー情報で確認できます）。そのシーズンで初めて取った称号は、Discordの部屋のチャンネルでお祝いのお知らせが出ます。</li>
+      <li><strong>シーズンの振り返り：</strong>シーズンが終わると、そのシーズンに出たメンバーへ、個人の成績の振り返り（出場・優勝・レート・名場面など）がDMで届きます。</li>
     </ul>
   </section>
 
@@ -1268,9 +1326,9 @@ code {
       <li><strong>動的オッズ：</strong>オッズは固定ではなく、出走者の過去戦績（全シーズン通算）と参考XPをもとに、その回の試合を40万回シミュレーションして毎回自動算出されます。オッズは、当たる見込みから出した公平な倍率のうち、<strong>儲けの部分からだけ</strong>運営の取り分を差し引いた値です（下限1.05倍。例：当たる見込みが半々なら、公平な2倍の儲け1から差し引いて約1.48倍）。</li>
       <li><strong>投票タイミングでオッズが変わります：</strong>試合が進んで勝敗が判明すると、その結果を織り込んだオッズに自動で引き直されます。先に勝った人のオッズは下がり、負けた人のオッズは上がります。「結果を見てから賭ければ得」という状態にならないようにするための仕組みです。</li>
       <li><strong>早期投票ボーナス：</strong>情報が少ないうちに賭ける人ほど有利になるよう、確定オッズのうち<strong>儲けの部分</strong>に倍率が上乗せされます。<strong>1戦目終了前は1.2倍、2戦目終了前は1.1倍、3戦目終了前（締切直前）は1.0倍</strong>です（例：1.480倍の賭けに1戦目終了前に投票すると、儲けの0.48が0.576になり1.576倍）。出走表に表示されている倍率には、この上乗せ分が既に含まれています。</li>
-      <li><strong>投票締め切り：</strong>第3試合の終了時に自動で締め切られます。</li>
+      <li><strong>投票締め切り：</strong>第3試合の終了時に自動で締め切られます。投票の取り消しも同じく第3試合の終了時までです。</li>
       <li><strong>ベット制限：</strong>最低100コインから100コイン単位で賭けることができます。</li>
-      <li><strong>出走者は自身以外への投票禁止：</strong>試合に出走しているプレイヤー本人は、自身以外へ投票することはできません（勝ち越し、単勝の選択は可）。</li>
+      <li><strong>出走者の自分への投票禁止：</strong>試合に出走しているプレイヤー本人は、自分を単勝・勝ち越しに指名することはできません（ほかの出走者への投票は可）。</li>
       <li>
         <strong>優勝ボーナス・補填制度：</strong>
         <ul class="sub">
@@ -1280,7 +1338,8 @@ code {
           <li>保有コインが100未満になると「破産」扱いとなります。</li>
         </ul>
       </li>
-      <li><strong>試合中断時：</strong>主催者判断やトラブルにより試合が強制中断された場合、その試合に賭けられていたコインは全額自動返還されます。</li>
+      <li><strong>試合中断時：</strong>主催者判断やトラブルにより試合が強制中断（中止）された場合、その試合に賭けられていたコインは全額自動返還されます（返還した金額は本人にDMでお知らせします）。</li>
+      <li><strong>途中交代時：</strong>試合中に途中交代が起きた場合も、その試合に賭けられていたコインは全額自動返還され（返還した金額は本人にDMでお知らせします）、以降その試合への投票はできなくなります。</li>
     </ul>
   </section>
 
@@ -1311,14 +1370,13 @@ code {
       <li>指示や立ち回りの提案（オーダー）を行う際は押し付けにならないよう配慮し、受ける側も最終判断は自身で行ってください。</li>
     </ul>
 
-    <h3 class="rise">特別ルールの適用</h3>
-    <p class="rise">参加者全員の了承がある場合に限り、「ノーレート対戦」「部を超えた無制限対戦」「身内限定対戦」などの各種特殊ルールでの開催が認められます。</p>
+    <p class="rise" style="color: var(--text-dim); font-size: .95em;">※ 特別ルールの適用については「6 対戦基本ルール」をご確認ください。</p>
   </section>
 
   <footer class="foot">
     <svg class="foot-mark" viewBox="0 0 100 100" aria-hidden="true"><use href="#splat"/></svg>
     <div class="foot-txt">TKO鯖 10勝プラベ部 公式ルールブック</div>
-    <div class="foot-txt foot-ver">V8.5</div>
+    <div class="foot-txt foot-ver">V8.8</div>
   </footer>
 
   <p class="legal-note">このウェブサイトは任天堂とは関係ありません。すべての製品名、ロゴ、ブランドはそれぞれの所有者に帰属します。</p>
